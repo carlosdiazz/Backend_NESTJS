@@ -1,17 +1,17 @@
-_id: req_8f2e44d186cf41e3bb70b559b9aaf49c
+_id: req_97d742d43c5b465d9603032381aa6d33
 type: Request
-parentId: fld_ebea3b853e1948619260d73d48077545
-modified: 1666818080912
-created: 1666817662332
-url: "{{ _.BASE_URL }}/brands/34"
-name: deleteBrands
+parentId: fld_63a64e5987de4de59402627491525f69
+modified: 1666818327031
+created: 1666818324073
+url: "{{ _.BASE_URL }}/products/45"
+name: getOneProduct
 description: ""
-method: DELETE
+method: GET
 body: {}
 parameters: []
 headers: []
 authentication: {}
-metaSortKey: -1666807800746.5
+metaSortKey: -1666371950411.5
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true
