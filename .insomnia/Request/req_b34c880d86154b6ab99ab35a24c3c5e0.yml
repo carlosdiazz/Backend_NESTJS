@@ -1,0 +1,21 @@
+_id: req_b34c880d86154b6ab99ab35a24c3c5e0
+type: Request
+parentId: fld_6a51adc918154548a9e25ebd8d26afcd
+modified: 1666807776311
+created: 1666807766441
+url: "{{ _.BASE_URL }}/costumers"
+name: getAllCostumers
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1666807766441
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

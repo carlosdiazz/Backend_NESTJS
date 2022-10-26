@@ -1,0 +1,21 @@
+_id: req_8f2e44d186cf41e3bb70b559b9aaf49c
+type: Request
+parentId: fld_ebea3b853e1948619260d73d48077545
+modified: 1666817667883
+created: 1666817662332
+url: "{{ _.BASE_URL }}/brands/34"
+name: deleteBrands
+description: ""
+method: DELETE
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1666807800746.5
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

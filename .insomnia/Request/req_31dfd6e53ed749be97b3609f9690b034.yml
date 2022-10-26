@@ -1,0 +1,21 @@
+_id: req_31dfd6e53ed749be97b3609f9690b034
+type: Request
+parentId: fld_6a51adc918154548a9e25ebd8d26afcd
+modified: 1666817358982
+created: 1666817351833
+url: "{{ _.BASE_URL }}/costumers/34"
+name: deleteCostumers
+description: ""
+method: DELETE
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1666807760748.5
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

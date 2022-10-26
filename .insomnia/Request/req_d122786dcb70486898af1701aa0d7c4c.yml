@@ -1,0 +1,21 @@
+_id: req_d122786dcb70486898af1701aa0d7c4c
+type: Request
+parentId: fld_ebea3b853e1948619260d73d48077545
+modified: 1666807823848
+created: 1666807807815
+url: "{{ _.BASE_URL }}/brands"
+name: getAllBrands
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1666807807815
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

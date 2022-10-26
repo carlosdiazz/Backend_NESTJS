@@ -1,0 +1,21 @@
+_id: req_f362a5b99b304da7b832678e3bb8f53a
+type: Request
+parentId: fld_ebea3b853e1948619260d73d48077545
+modified: 1666817690230
+created: 1666817686518
+url: "{{ _.BASE_URL }}/brands"
+name: createBrands
+description: ""
+method: POST
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1666807795445.125
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

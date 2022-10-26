@@ -1,0 +1,21 @@
+_id: req_02d36f6e79524f748b40818f4d514a6c
+type: Request
+parentId: fld_878ee2f615134b06ba5f6eabeca4b700
+modified: 1666816949016
+created: 1666816947392
+url: "{{ _.BASE_URL }}/orders/45"
+name: deleteOrders
+description: ""
+method: DELETE
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1666807770099.75
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

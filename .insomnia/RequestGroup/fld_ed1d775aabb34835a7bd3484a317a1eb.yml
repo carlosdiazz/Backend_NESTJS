@@ -1,0 +1,10 @@
+_id: fld_ed1d775aabb34835a7bd3484a317a1eb
+type: RequestGroup
+parentId: wrk_8526125dac2f413a8024afc1a3e6d721
+modified: 1666797403766
+created: 1666797403766
+name: categories
+description: ""
+environment: {}
+environmentPropertyOrder: null
+metaSortKey: -1666797403766

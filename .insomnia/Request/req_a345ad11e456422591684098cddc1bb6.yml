@@ -1,0 +1,21 @@
+_id: req_a345ad11e456422591684098cddc1bb6
+type: Request
+parentId: fld_6a51adc918154548a9e25ebd8d26afcd
+modified: 1666817369313
+created: 1666817366234
+url: "{{ _.BASE_URL }}/costumers/34"
+name: updateCostumers
+description: ""
+method: PUT
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1666807757902.25
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

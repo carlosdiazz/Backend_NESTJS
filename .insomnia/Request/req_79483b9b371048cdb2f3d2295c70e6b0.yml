@@ -1,0 +1,21 @@
+_id: req_79483b9b371048cdb2f3d2295c70e6b0
+type: Request
+parentId: fld_ed1d775aabb34835a7bd3484a317a1eb
+modified: 1666807765328
+created: 1666807755056
+url: "{{ _.BASE_URL }}/categories"
+name: getAllCatgeories
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1666807755056
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

@@ -1,0 +1,21 @@
+_id: req_2db676bb23d74f98b84ba5de8043681e
+type: Request
+parentId: fld_878ee2f615134b06ba5f6eabeca4b700
+modified: 1666816917412
+created: 1666816908148
+url: "{{ _.BASE_URL }}/orders/45"
+name: updateOrders
+description: ""
+method: PUT
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1666807773758.5
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

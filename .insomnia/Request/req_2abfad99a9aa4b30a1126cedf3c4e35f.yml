@@ -1,0 +1,21 @@
+_id: req_2abfad99a9aa4b30a1126cedf3c4e35f
+type: Request
+parentId: fld_9ca4c8d7e3384ad1a01aa90542d704c0
+modified: 1666817591647
+created: 1666817559432
+url: "{{ _.BASE_URL }}/users/23"
+name: updateUsers
+description: ""
+method: PUT
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1666807784226.5
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

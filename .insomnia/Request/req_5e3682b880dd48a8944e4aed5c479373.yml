@@ -1,0 +1,21 @@
+_id: req_5e3682b880dd48a8944e4aed5c479373
+type: Request
+parentId: fld_9ca4c8d7e3384ad1a01aa90542d704c0
+modified: 1666817551707
+created: 1666817549913
+url: "{{ _.BASE_URL }}/users"
+name: createUsers
+description: ""
+method: POST
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1666807787377
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

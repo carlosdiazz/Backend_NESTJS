@@ -1,0 +1,21 @@
+_id: req_fbcb8fae433145d9acdeeb096a13d420
+type: Request
+parentId: fld_ed1d775aabb34835a7bd3484a317a1eb
+modified: 1666817150177
+created: 1666817137403
+url: "{{ _.BASE_URL }}/categories/34"
+name: deleteCatgeories
+description: ""
+method: DELETE
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1666802508510
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
