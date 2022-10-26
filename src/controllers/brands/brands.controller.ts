@@ -1,9 +1,24 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Delete, Put, Post } from '@nestjs/common';
 
 @Controller('brands')
 export class BrandsController {
   @Get()
   getAllBrands() {
-    return 'Get all Brands';
+    return { message: 'Get all brands' };
+  }
+
+  @Delete(':id')
+  delete() {
+    return { message: 'Delete brands' };
+  }
+
+  @Put(':id')
+  update() {
+    return { message: 'Update brands' };
+  }
+
+  @Post()
+  create() {
+    return { message: 'Create brands' };
   }
 }
