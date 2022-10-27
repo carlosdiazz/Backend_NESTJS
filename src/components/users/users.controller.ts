@@ -25,6 +25,11 @@ export class UsersController {
     return this.userService.findOne(idUser);
   }
 
+  @Get(':idUser/orders')
+  getOrders(@Param('idUser', ParseIntPipe) idUser: number) {
+    return this.userService.getOrderByUser(idUser);
+  }
+
   @Delete(':idUser')
   delete(@Param('idUser', ParseIntPipe) idUser: number) {
     return this.userService.delete(idUser);

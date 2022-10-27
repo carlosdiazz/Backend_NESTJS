@@ -1,11 +1,24 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { User } from './users.entity';
+import { Order } from '../orders/order.entity';
 import { CreateUserSchema, UpdateUserSchemas } from './users.schemas';
+import { ProductsService } from '../products/products.service';
 
 @Injectable()
 export class UsersService {
+  constructor(private productsService: ProductsService) {}
+
   private id_User = 1;
-  private users: User[] = [];
+  private users: User[] = [
+    {
+      id: 1,
+      firstName: 'Carlos',
+      lastName: 'Diaz',
+      nickname: 'carlos000814',
+      email: 'c.diaz@mail.com',
+      password: '123carlos',
+    },
+  ];
 
   findAll() {
     return this.users;
@@ -48,5 +61,14 @@ export class UsersService {
       return this.users;
     }
     throw new NotFoundException('El usuario no se encontro');
+  }
+
+  getOrderByUser(id: number): Order {
+    const user = this.findOne(id);
+    return {
+      date: new Date(),
+      user,
+      products: this.productsService.findAll(),
+    };
   }
 }
