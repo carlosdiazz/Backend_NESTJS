@@ -1,15 +1,26 @@
 _id: req_5e3682b880dd48a8944e4aed5c479373
 type: Request
 parentId: fld_9ca4c8d7e3384ad1a01aa90542d704c0
-modified: 1666817551707
+modified: 1666900159570
 created: 1666817549913
 url: "{{ _.BASE_URL }}/users"
 name: createUsers
 description: ""
 method: POST
-body: {}
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"firstName" : "Carlos",
+    	"lastName" : "Diaz",
+    	"nickname" : "Carlos",
+    	"email" : "c.diazadrian@hotmail.com",
+    	"password" : "12341234carlos"
+    }
 parameters: []
-headers: []
+headers:
+  - name: Content-Type
+    value: application/json
 authentication: {}
 metaSortKey: -1666807787377
 isPrivate: false

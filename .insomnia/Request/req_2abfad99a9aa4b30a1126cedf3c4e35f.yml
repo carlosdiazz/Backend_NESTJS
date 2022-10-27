@@ -1,15 +1,22 @@
 _id: req_2abfad99a9aa4b30a1126cedf3c4e35f
 type: Request
 parentId: fld_9ca4c8d7e3384ad1a01aa90542d704c0
-modified: 1666817591647
+modified: 1666900204224
 created: 1666817559432
-url: "{{ _.BASE_URL }}/users/23"
+url: "{{ _.BASE_URL }}/users/2"
 name: updateUsers
 description: ""
 method: PUT
-body: {}
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"firstName":"carrrrr"
+    }
 parameters: []
-headers: []
+headers:
+  - name: Content-Type
+    value: application/json
 authentication: {}
 metaSortKey: -1666807784226.5
 isPrivate: false
