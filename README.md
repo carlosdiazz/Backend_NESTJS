@@ -48,3 +48,11 @@ Coloco --flat si no quiero crear una carperta
 - GENERAR UN PROYECTO NESTJS: nest new NAMA
 - GENERAR CONTROLADORES: nest g co controllers/NAME
 - GENERAR SERVICIOS: nest g s services/NAME
+- GENERAR MI PIPE PROPIO: nest g pipe common/NAME
+
+
+## Librerias externas utilizadas
+
+- class-validator
+- class-transformer
+- @nestjs/mapped-types

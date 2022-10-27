@@ -9,9 +9,14 @@ import {
   Delete,
   HttpStatus,
   HttpCode,
+  ParseIntPipe,
 } from '@nestjs/common';
-import {ProductsService} from '../../services/products/products.service';
-
+import { ProductsService } from '../../services/products/products.service';
+import { ParseIntPipe2 } from '../../common/parse-int.pipe';
+import {
+  CreateProductSchemas,
+  UpdateProductSchemas,
+} from '../../schemas/product.schemas';
 @Controller('products')
 export class ProductsController {
   constructor(private productsService: ProductsService) {}
@@ -26,26 +31,28 @@ export class ProductsController {
 
   @Get(':idProduct')
   @HttpCode(HttpStatus.ACCEPTED)
-  getOneProduct(@Param('idProduct') idProduct: string) {
+  getOneProduct(@Param('idProduct', ParseIntPipe) idProduct: number) {
     //return { message: `Get one Este es el id => ${idProduct}` };
     return this.productsService.findOne(idProduct);
   }
 
   @Post()
-  createProduct(@Body() payload: any) {
+  createProduct(@Body() payload: CreateProductSchemas) {
     //return { message: 'Producto creado', payload: payload };
     return this.productsService.create(payload);
   }
 
   @Put(':idProduct')
-  updateProduct(@Param('idProduct') idProduct: string, @Body() payload: any) {
-
+  updateProduct(
+    @Param('idProduct', ParseIntPipe2) idProduct: number,
+    @Body() payload: UpdateProductSchemas,
+  ) {
     //return { message: 'productactualizado', idProduct, payload };
     return this.productsService.update(idProduct, payload);
   }
 
   @Delete(':idProduct')
-  deleteProduct(@Param('idProduct') idProduct: string) {
+  deleteProduct(@Param('idProduct', ParseIntPipe2) idProduct: number) {
     //return { message: `Producto eliminado ${idProduct}` };
     return this.productsService.delete(idProduct);
   }

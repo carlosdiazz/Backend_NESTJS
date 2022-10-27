@@ -1,13 +1,17 @@
-import { Injectable,  NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { Product } from '../../entities/product.entity';
+import {
+  CreateProductSchemas,
+  UpdateProductSchemas,
+} from '../../schemas/product.schemas';
 //import { nanoid } from 'nanoid';
 
 @Injectable()
 export class ProductsService {
-  private counter_ID = 1
+  private counter_ID = 1;
   private products: Product[] = [
     {
-      id: '5435',
+      id: 45,
       name: 'Product 1',
       description: 'Descripcion Product 1',
       price: 100,
@@ -20,25 +24,26 @@ export class ProductsService {
     return this.products;
   }
 
-  findOne(id: string) {
-    const product = this.products.find((item) => item.id === id)
-    if(!product){
+  findOne(id: number) {
+    const product = this.products.find((item) => item.id === id);
+    if (!product) {
       throw new NotFoundException('El product no fue encontrado');
     }
     return product;
   }
 
-  create(payload: any) {
-    this.counter_ID+=1
+  create(payload: CreateProductSchemas) {
+    console.log(payload);
+    this.counter_ID += 1;
     const newProduct = {
-      id: `${this.counter_ID}`,
+      id: this.counter_ID,
       ...payload,
     };
     this.products.push(newProduct);
     return newProduct;
   }
 
-  update(id: string, payload: any) {
+  update(id: number, payload: UpdateProductSchemas) {
     const index = this.products.findIndex((product) => product.id === id);
     if (index >= 0) {
       this.products[index] = {
@@ -50,11 +55,11 @@ export class ProductsService {
     throw new NotFoundException('El product no fue encontrado');
   }
 
-  delete(id:string) {
+  delete(id: number) {
     const index = this.products.findIndex((product) => product.id === id);
     if (index >= 0) {
-      this.products.splice(index,1)
-      return this.products
+      this.products.splice(index, 1);
+      return this.products;
     }
     throw new NotFoundException('El product no fue encontrado');
   }
