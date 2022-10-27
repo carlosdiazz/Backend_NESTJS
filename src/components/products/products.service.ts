@@ -1,9 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { Product } from '../../entities/product.entity';
-import {
-  CreateProductSchemas,
-  UpdateProductSchemas,
-} from '../../schemas/product.schemas';
+import { Product } from './product.entity';
+import { CreateProductSchemas, UpdateProductSchemas } from './product.schemas';
 //import { nanoid } from 'nanoid';
 
 @Injectable()
@@ -33,7 +30,6 @@ export class ProductsService {
   }
 
   create(payload: CreateProductSchemas) {
-    console.log(payload);
     this.counter_ID += 1;
     const newProduct = {
       id: this.counter_ID,

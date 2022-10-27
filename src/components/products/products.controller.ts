@@ -11,12 +11,9 @@ import {
   HttpCode,
   ParseIntPipe,
 } from '@nestjs/common';
-import { ProductsService } from '../../services/products/products.service';
+import { ProductsService } from './products.service';
 import { ParseIntPipe2 } from '../../common/parse-int.pipe';
-import {
-  CreateProductSchemas,
-  UpdateProductSchemas,
-} from '../../schemas/product.schemas';
+import { CreateProductSchemas, UpdateProductSchemas } from './product.schemas';
 @Controller('products')
 export class ProductsController {
   constructor(private productsService: ProductsService) {}
