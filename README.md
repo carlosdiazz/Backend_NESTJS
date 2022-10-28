@@ -55,6 +55,7 @@ Coloco --flat si no quiero crear una carperta
 
 ## Librerias externas utilizadas
 
-- class-validator
-- class-transformer
-- @nestjs/mapped-types
+- class-validator #Validar datos
+- class-transformer #tranfosmtar clases
+- @nestjs/mapped-types #
+- npm i @nestjs/config #Usar variables de entornos

@@ -3,10 +3,12 @@ import { User } from './users.entity';
 import { Order } from '../orders/order.entity';
 import { CreateUserSchema, UpdateUserSchemas } from './users.schemas';
 import { ProductsService } from '../products/products.service';
-
+//import { ConfigService } from '@nestjs/config';
 @Injectable()
 export class UsersService {
-  constructor(private productsService: ProductsService) {}
+  constructor(
+    private productsService: ProductsService, //private configService: ConfigService,
+  ) {}
 
   private id_User = 1;
   private users: User[] = [
@@ -21,6 +23,8 @@ export class UsersService {
   ];
 
   findAll() {
+    //const apiKey = this.configService.get('API_KEY');
+    //console.log(apiKey);
     return this.users;
   }
 

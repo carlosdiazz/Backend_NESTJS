@@ -1,5 +1,11 @@
-import * as dotenv from 'dotenv';
-dotenv.config();
+import { registerAs } from '@nestjs/config';
 
-export const PORT_APP = process.env.PORT_APP || 3000;
-export const ENVIRONMENT = process.env.ENVIRONMENT || 'DEV';
+export default registerAs('config', () => {
+  return {
+    database: {
+      name: process.env.DATABASE_NAME,
+      port: process.env.DATABASE_PORT,
+    },
+    apiKey: process.env.API_KEy,
+  };
+});
