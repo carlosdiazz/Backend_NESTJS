@@ -1,4 +1,7 @@
 import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
+import { HttpModule, HttpService } from '@nestjs/axios';
+import { firstValueFrom } from 'rxjs';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UsersModule } from '../components/users/users.module';
@@ -7,18 +10,17 @@ import { BrandsModule } from '../components/brands/brands.module';
 import { OrdersModule } from '../components/orders/orders.module';
 import { CostumersModule } from '../components/costumers/costumers.module';
 import { CategoriesModule } from '../components/categories/categories.module';
-import { HttpModule, HttpService } from '@nestjs/axios';
-import { firstValueFrom } from 'rxjs';
 import { DatabaseModule } from 'src/database/database.module';
-import { ConfigModule } from '@nestjs/config';
-import { enviroments } from '../config/enviroments';
-import config from '../config/config';
+
+//import { enviroments } from '../config/enviroments';
+import { config, validationENV } from '../config/config';
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: enviroments[process.env.NODE_ENV] || '.env',
+      //envFilePath: enviroments[process.env.NODE_ENV] || '.env',
       load: [config],
       isGlobal: true,
+      validationSchema: validationENV(),
     }),
     UsersModule,
     ProductsModule,

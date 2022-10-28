@@ -11,6 +11,9 @@ import {
 import { UsersService } from './users.service';
 import { CreateUserSchema, UpdateUserSchemas } from './users.schemas';
 
+import { ApiTags } from '@nestjs/swagger';
+
+@ApiTags('users')
 @Controller('users')
 export class UsersController {
   constructor(private userService: UsersService) {}

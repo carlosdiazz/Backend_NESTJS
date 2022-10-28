@@ -1,8 +1,11 @@
 import { Controller, Get, Post, Put, Delete } from '@nestjs/common';
+import { ApiTags, ApiOperation } from '@nestjs/swagger';
 
+@ApiTags('categories')
 @Controller('categories')
 export class CategoriesController {
   @Get()
+  @ApiOperation({ summary: 'Lista de categories' })
   getAllCategories() {
     return { message: 'Get all Categories' };
   }

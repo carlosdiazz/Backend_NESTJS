@@ -1,6 +1,7 @@
 import { registerAs } from '@nestjs/config';
+import * as Joi from 'joi';
 
-export default registerAs('config', () => {
+export const config = registerAs('config', () => {
   return {
     database: {
       name: process.env.DATABASE_NAME,
@@ -9,3 +10,11 @@ export default registerAs('config', () => {
     apiKey: process.env.API_KEy,
   };
 });
+
+export const validationENV = () => {
+  return Joi.object({
+    API_KEY: Joi.number().required(),
+    DATABASE_NAME: Joi.string().required(),
+    DATABASE_PORT: Joi.number().required(),
+  });
+};

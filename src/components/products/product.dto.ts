@@ -6,10 +6,13 @@ import {
   IsNotEmpty,
   IsPositive,
 } from 'class-validator';
-import { PartialType } from '@nestjs/mapped-types';
+//import { PartialType } from '@nestjs/mapped-types';
+import { PartialType, ApiProperty } from '@nestjs/swagger'; //Lo apso por aqui apra la documentacion
+
 export class CreateProductSchemas {
   @IsString()
   @IsNotEmpty()
+  @ApiProperty({ description: 'El name correcto' })
   readonly name: string;
   @IsString()
   @IsNotEmpty()

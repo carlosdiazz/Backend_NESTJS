@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { Product } from './product.entity';
-import { CreateProductSchemas, UpdateProductSchemas } from './product.schemas';
+import { CreateProductSchemas, UpdateProductSchemas } from './product.dto';
 //import { nanoid } from 'nanoid';
 
 @Injectable()
