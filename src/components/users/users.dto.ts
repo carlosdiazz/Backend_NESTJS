@@ -1,21 +1,31 @@
-import { IsString, IsEmail, IsAlphanumeric, IsNotEmpty } from 'class-validator';
-import { PartialType } from '@nestjs/mapped-types';
+import { IsString, IsNotEmpty } from 'class-validator';
+
+import { PartialType, ApiProperty } from '@nestjs/swagger'; //Lo apso por aqui apra la documentacion
 
 export class CreateUserSchema {
   @IsString()
   @IsNotEmpty()
+  @ApiProperty({ description: 'El firstName correcto' })
   readonly firstName: string;
+
   @IsString()
   @IsNotEmpty()
+  @ApiProperty()
   readonly lastName: string;
+
   @IsString()
   @IsNotEmpty()
+  @ApiProperty()
   readonly nickname: string;
-  @IsEmail()
+
+  @IsString()
   @IsNotEmpty()
+  @ApiProperty()
   readonly email: string;
-  @IsAlphanumeric()
+
+  @IsString()
   @IsNotEmpty()
+  @ApiProperty()
   readonly password: string;
 }
 

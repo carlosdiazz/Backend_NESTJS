@@ -9,7 +9,7 @@ import {
   ParseIntPipe,
 } from '@nestjs/common';
 import { UsersService } from './users.service';
-import { CreateUserSchema, UpdateUserSchemas } from './users.schemas';
+import { CreateUserSchema, UpdateUserSchemas } from './users.dto';
 
 import { ApiTags } from '@nestjs/swagger';
 
@@ -28,10 +28,10 @@ export class UsersController {
     return this.userService.findOne(idUser);
   }
 
-  @Get(':idUser/orders')
-  getOrders(@Param('idUser', ParseIntPipe) idUser: number) {
-    return this.userService.getOrderByUser(idUser);
-  }
+  //@Get(':idUser/orders')
+  //getOrders(@Param('idUser', ParseIntPipe) idUser: number) {
+  //  return this.userService.getOrderByUser(idUser);
+  //}
 
   @Delete(':idUser')
   delete(@Param('idUser', ParseIntPipe) idUser: number) {

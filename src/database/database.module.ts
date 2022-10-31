@@ -4,6 +4,8 @@ import { Client } from 'pg';
 import { config } from '../config/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { DataSourceOptions } from 'typeorm';
+import { Product } from '../components/products/product.entity';
+import { User } from '../components/users/users.entity';
 
 //const client = new Client({
 //  user: VARIABLES.database.user,
@@ -13,7 +15,6 @@ import { DataSourceOptions } from 'typeorm';
 //  port: VARIABLES.database.port,
 //});
 //client.connect();
-console.log(__dirname + '../components/**/*.entity.ts');
 @Global()
 @Module({
   imports: [
@@ -27,7 +28,7 @@ console.log(__dirname + '../components/**/*.entity.ts');
           username: configService.postgres.dbUser,
           password: configService.postgres.dbPassword,
           database: configService.postgres.dbName,
-          entities: [__dirname + '../components/products/*.entity.js'],
+          entities: [Product, User],
           synchronize: true,
         } as DataSourceOptions),
     }),

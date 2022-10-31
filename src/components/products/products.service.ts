@@ -15,42 +15,40 @@ export class ProductsService {
     return this.productRepo.find();
   }
 
-  findOne(id: number) {
-    const product = this.productRepo.findOneBy({ id });
+  async findOne(id: number) {
+    const product = await this.productRepo.findOneBy({ id });
     if (!product) {
       throw new NotFoundException('El product no fue encontrado');
     }
     return product;
   }
 
-  //create(payload: CreateProductSchemas) {
-  //  this.counter_ID += 1;
-  //  const newProduct = {
-  //    id: this.counter_ID,
-  //    ...payload,
-  //  };
-  //  this.products.push(newProduct);
-  //  return newProduct;
-  //}
-//
-  //update(id: number, payload: UpdateProductSchemas) {
-  //  const index = this.products.findIndex((product) => product.id === id);
-  //  if (index >= 0) {
-  //    this.products[index] = {
-  //      ...this.products[index],
-  //      ...payload,
-  //    };
-  //    return this.products[index];
-  //  }
-  //  throw new NotFoundException('El product no fue encontrado');
-  //}
-//
-  //delete(id: number) {
-  //  const index = this.products.findIndex((product) => product.id === id);
-  //  if (index >= 0) {
-  //    this.products.splice(index, 1);
-  //    return this.products;
-  //  }
-  //  throw new NotFoundException('El product no fue encontrado');
-  //}
+  create(payload: CreateProductSchemas) {
+    //const newProduct = new Product();
+    //newProduct.description = payload.description;
+    //newProduct.image = payload.image;
+    //newProduct.name = payload.name;
+    //newProduct.price = payload.price;
+    //newProduct.stock = payload.stock;
+    const newProduct = this.productRepo.create(payload);
+
+    return this.productRepo.save(newProduct);
+  }
+
+  async update(id: number, payload: UpdateProductSchemas) {
+    const product = await this.productRepo.findOneBy({ id });
+    if (!product) {
+      throw new NotFoundException('El product no fue encontrado');
+    }
+    this.productRepo.merge(product, payload);
+    return this.productRepo.save(product);
+  }
+
+  async delete(id: number) {
+    const product = await this.productRepo.findOneBy({ id });
+    if (!product) {
+      throw new NotFoundException('El product no fue encontrado');
+    }
+    return this.productRepo.delete(id);
+  }
 }

@@ -30,30 +30,30 @@ export class ProductsController {
   }
 
   @Get(':idProduct')
-  @HttpCode(HttpStatus.ACCEPTED)
+  //@HttpCode(HttpStatus.ACCEPTED)
   getOneProduct(@Param('idProduct', ParseIntPipe) idProduct: number) {
     //return { message: `Get one Este es el id => ${idProduct}` };
     return this.productsService.findOne(idProduct);
   }
 
-  //@Post()
-  //createProduct(@Body() payload: CreateProductSchemas) {
-  //  //return { message: 'Producto creado', payload: payload };
-  //  return this.productsService.create(payload);
-  //}
-//
-  //@Put(':idProduct')
-  //updateProduct(
-  //  @Param('idProduct', ParseIntPipe2) idProduct: number,
-  //  @Body() payload: UpdateProductSchemas,
-  //) {
-  //  //return { message: 'productactualizado', idProduct, payload };
-  //  return this.productsService.update(idProduct, payload);
-  //}
-//
-  //@Delete(':idProduct')
-  //deleteProduct(@Param('idProduct', ParseIntPipe2) idProduct: number) {
-  //  //return { message: `Producto eliminado ${idProduct}` };
-  //  return this.productsService.delete(idProduct);
-  //}
+  @Post()
+  createProduct(@Body() payload: CreateProductSchemas) {
+    //return { message: 'Producto creado', payload: payload };
+    return this.productsService.create(payload);
+  }
+
+  @Put(':idProduct')
+  updateProduct(
+    @Param('idProduct', ParseIntPipe2) idProduct: number,
+    @Body() payload: UpdateProductSchemas,
+  ) {
+    //return { message: 'productactualizado', idProduct, payload };
+    return this.productsService.update(idProduct, payload);
+  }
+
+  @Delete(':idProduct')
+  deleteProduct(@Param('idProduct', ParseIntPipe2) idProduct: number) {
+    //return { message: `Producto eliminado ${idProduct}` };
+    return this.productsService.delete(idProduct);
+  }
 }
