@@ -4,12 +4,12 @@ import * as dotenv from 'dotenv';
 dotenv.config();
 
 export const VARIABLES = {
-  database: {
-    name: process.env.DATABASE_NAME,
-    port: Number(process.env.DATABASE_PORT),
-    user: process.env.DATABASE_USER,
-    password: process.env.DATABASE_PASSWORD,
-    host: process.env.DATABASE_HOST,
+  postgres: {
+    dbName: process.env.DATABASE_NAME,
+    dbPort: Number(process.env.DATABASE_PORT),
+    dbUser: process.env.DATABASE_USER,
+    dbPassword: process.env.DATABASE_PASSWORD,
+    dbHost: process.env.DATABASE_HOST,
   },
   apiKey: process.env.API_KEy,
 };

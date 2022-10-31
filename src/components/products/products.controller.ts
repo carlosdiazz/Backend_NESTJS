@@ -36,24 +36,24 @@ export class ProductsController {
     return this.productsService.findOne(idProduct);
   }
 
-  @Post()
-  createProduct(@Body() payload: CreateProductSchemas) {
-    //return { message: 'Producto creado', payload: payload };
-    return this.productsService.create(payload);
-  }
-
-  @Put(':idProduct')
-  updateProduct(
-    @Param('idProduct', ParseIntPipe2) idProduct: number,
-    @Body() payload: UpdateProductSchemas,
-  ) {
-    //return { message: 'productactualizado', idProduct, payload };
-    return this.productsService.update(idProduct, payload);
-  }
-
-  @Delete(':idProduct')
-  deleteProduct(@Param('idProduct', ParseIntPipe2) idProduct: number) {
-    //return { message: `Producto eliminado ${idProduct}` };
-    return this.productsService.delete(idProduct);
-  }
+  //@Post()
+  //createProduct(@Body() payload: CreateProductSchemas) {
+  //  //return { message: 'Producto creado', payload: payload };
+  //  return this.productsService.create(payload);
+  //}
+//
+  //@Put(':idProduct')
+  //updateProduct(
+  //  @Param('idProduct', ParseIntPipe2) idProduct: number,
+  //  @Body() payload: UpdateProductSchemas,
+  //) {
+  //  //return { message: 'productactualizado', idProduct, payload };
+  //  return this.productsService.update(idProduct, payload);
+  //}
+//
+  //@Delete(':idProduct')
+  //deleteProduct(@Param('idProduct', ParseIntPipe2) idProduct: number) {
+  //  //return { message: `Producto eliminado ${idProduct}` };
+  //  return this.productsService.delete(idProduct);
+  //}
 }

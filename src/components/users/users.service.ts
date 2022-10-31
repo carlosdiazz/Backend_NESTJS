@@ -67,12 +67,12 @@ export class UsersService {
     throw new NotFoundException('El usuario no se encontro');
   }
 
-  getOrderByUser(id: number): Order {
+  async getOrderByUser(id: number) {
     const user = this.findOne(id);
     return {
       date: new Date(),
       user,
-      products: this.productsService.findAll(),
+      products: await this.productsService.findAll(),
     };
   }
 }

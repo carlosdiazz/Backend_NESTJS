@@ -60,6 +60,7 @@ Coloco --flat si no quiero crear una carperta
 - @nestjs/mapped-types #
 - npm i @nestjs/config #Usar variables de entornos
 - npm i pg
+- npm install --save @nestjs/typeorm typeorm pg
 
 
 ## Manjear docker
