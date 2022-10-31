@@ -59,3 +59,9 @@ Coloco --flat si no quiero crear una carperta
 - class-transformer #tranfosmtar clases
 - @nestjs/mapped-types #
 - npm i @nestjs/config #Usar variables de entornos
+- npm i pg
+
+
+## Manjear docker
+
+- Para subir el docker: docker-compose up -d

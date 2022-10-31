@@ -2,6 +2,8 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { HttpModule, HttpService } from '@nestjs/axios';
 import { firstValueFrom } from 'rxjs';
+
+//Importaciones Propias
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UsersModule } from '../components/users/users.module';
@@ -14,6 +16,7 @@ import { DatabaseModule } from 'src/database/database.module';
 
 //import { enviroments } from '../config/enviroments';
 import { config, validationENV } from '../config/config';
+
 @Module({
   imports: [
     ConfigModule.forRoot({
