@@ -6,6 +6,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { DataSourceOptions } from 'typeorm';
 import { Product } from '../components/products/product.entity';
 import { User } from '../components/users/users.entity';
+import { Customer } from '../components/costumers/costumer.entity';
 
 //const client = new Client({
 //  user: VARIABLES.database.user,
@@ -28,9 +29,19 @@ import { User } from '../components/users/users.entity';
           username: configService.postgres.dbUser,
           password: configService.postgres.dbPassword,
           database: configService.postgres.dbName,
-          entities: [Product, User],
+          entities: [Product, User, Customer],
           synchronize: true,
         } as DataSourceOptions),
+      //({
+      //  type: 'mysql',
+      //  host: configService.mysql.dbHost,
+      //  port: configService.mysql.dbPort,
+      //  username: configService.mysql.dbUser,
+      //  password: configService.mysql.dbPassword,
+      //  database: configService.mysql.dbName,
+      //  entities: [Product, User],
+      //  synchronize: true,
+      //} as DataSourceOptions),
     }),
   ],
   providers: [

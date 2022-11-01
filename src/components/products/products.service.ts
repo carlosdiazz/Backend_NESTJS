@@ -1,10 +1,8 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { Product } from './product.entity';
-import { CreateProductSchemas, UpdateProductSchemas } from './product.dto';
-//import { nanoid } from 'nanoid';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-
+import { Product } from './product.entity';
+import { CreateProductSchemas, UpdateProductSchemas } from './product.dto';
 @Injectable()
 export class ProductsService {
   constructor(

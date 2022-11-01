@@ -7,24 +7,18 @@ import {
 } from 'typeorm';
 
 @Entity()
-export class Product {
+export class Customer {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ type: 'varchar', unique: true })
+  @Column({ type: 'varchar' })
   name: string;
 
   @Column({ type: 'varchar' })
-  description: string;
-
-  @Column({ type: 'int' })
-  price: number;
-
-  @Column({ type: 'int' })
-  stock: number;
+  lastName: string;
 
   @Column({ type: 'varchar' })
-  image: string;
+  phone: string;
 
   @CreateDateColumn({
     type: 'timestamptz',

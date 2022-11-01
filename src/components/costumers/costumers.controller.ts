@@ -1,26 +1,52 @@
-import { Controller, Get, Post, Put, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Put,
+  Delete,
+  ParseIntPipe,
+  Param,
+  Body,
+} from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
+
+import { CostumersService } from './costumers.service';
+import {
+  CreateCostumersSchemas,
+  UpdateCostumersSchemas,
+} from './costumers.dto';
+import { number } from 'joi';
 
 @ApiTags('costumers')
 @Controller('costumers')
 export class CostumersController {
+  constructor(private costumersService: CostumersService) {}
+
   @Get()
   getAllCostumbers() {
-    return { message: 'Get All Costumers' };
+    return this.costumersService.findAll();
+  }
+
+  @Get(':idCostumer')
+  getOneCostumer(@Param('idCostumer', ParseIntPipe) idCostumer: number) {
+    return this.costumersService.findOne(idCostumer);
   }
 
   @Post()
-  createProduct() {
-    return { message: 'Create Costumers' };
+  createProduct(@Body() payload: CreateCostumersSchemas) {
+    return this.costumersService.create(payload);
   }
 
   @Put(':idCostumers')
-  upateCostumers() {
-    return { message: 'Update Costumers' };
+  upateCostumers(
+    @Param('idCostumers', ParseIntPipe) idCostumers: number,
+    @Body() payload: UpdateCostumersSchemas,
+  ) {
+    return this.costumersService.update(idCostumers, payload);
   }
 
   @Delete(':idCostumers')
-  deleteCostumers() {
-    return { message: 'Delete Costumers' };
+  deleteCostumers(@Param('idCostumers', ParseIntPipe) idCostumers: number) {
+    return this.costumersService.delete(idCostumers);
   }
 }

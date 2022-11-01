@@ -29,6 +29,13 @@ export const config = registerAs('config', () => {
       dbPassword: process.env.POSTGRES_DB_PASSWORD,
       dbHost: process.env.POSTGRES_DB_HOST,
     },
+    mysql: {
+      dbName: process.env.MYSQL_DATABASE,
+      dbPort: Number(process.env.MYSQL_PORT),
+      dbUser: process.env.MYSQL_USER,
+      dbPassword: process.env.MYSQL_ROOT_PASSWORD,
+      dbHost: process.env.MYSQL_HOST,
+    },
     apiKey: process.env.API_KEy,
   };
 });
