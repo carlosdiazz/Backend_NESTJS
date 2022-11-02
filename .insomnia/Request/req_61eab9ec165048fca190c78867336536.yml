@@ -1,15 +1,24 @@
 _id: req_61eab9ec165048fca190c78867336536
 type: Request
 parentId: fld_6a51adc918154548a9e25ebd8d26afcd
-modified: 1666817384908
+modified: 1667356255711
 created: 1666817378522
 url: "{{ _.BASE_URL }}/costumers"
 name: createCostumers
 description: ""
 method: POST
-body: {}
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"name":"Customers1",
+    	"lastName":"PEdro",
+    	"phone":"809-573-7775"
+    }
 parameters: []
-headers: []
+headers:
+  - name: Content-Type
+    value: application/json
 authentication: {}
 metaSortKey: -1666807756479.125
 isPrivate: false

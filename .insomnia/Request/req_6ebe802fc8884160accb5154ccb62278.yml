@@ -1,23 +1,19 @@
 _id: req_6ebe802fc8884160accb5154ccb62278
 type: Request
 parentId: fld_63a64e5987de4de59402627491525f69
-modified: 1666816727056
+modified: 1666839360524
 created: 1666816724686
-url: "{{ _.BASE_URL }}/products/34"
+url: "{{ _.BASE_URL }}/products/5435"
 name: deleteProduct
 description: ""
 method: DELETE
 body:
-  mimeType: application/json
-  text: |-
-    {
-    	"name":"Producto 1",
-    	"price":12
-    }
+  mimeType: multipart/form-data
+  params: []
 parameters: []
 headers:
   - name: Content-Type
-    value: application/json
+    value: multipart/form-data
 authentication: {}
 metaSortKey: -1665308671530.25
 isPrivate: false

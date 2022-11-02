@@ -1,15 +1,22 @@
 _id: req_33c4e547160047439e60da2b9bd4943f
 type: Request
 parentId: fld_ebea3b853e1948619260d73d48077545
-modified: 1666817678060
+modified: 1667358611249
 created: 1666817675721
-url: "{{ _.BASE_URL }}/brands/34"
+url: "{{ _.BASE_URL }}/brands/2"
 name: updateBrands
 description: ""
 method: PUT
-body: {}
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"name":"Carrrr"
+    }
 parameters: []
-headers: []
+headers:
+  - name: Content-Type
+    value: application/json
 authentication: {}
 metaSortKey: -1666807797212.25
 isPrivate: false
