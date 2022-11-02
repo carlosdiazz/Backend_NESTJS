@@ -4,7 +4,10 @@ import {
   Entity,
   CreateDateColumn,
   UpdateDateColumn,
+  ManyToOne,
 } from 'typeorm';
+
+import {Brand} from '../brands/brands.entity'
 
 @Entity()
 export class Product {
@@ -37,4 +40,8 @@ export class Product {
     default: () => 'CURRENT_TIMESTAMP',
   })
   updateAt: Date;
+
+  //QUien tengan el metodo ManyToOne... La relacion si oh si debe de ir aqui
+  @ManyToOne(() => Brand, (brand) => brand.products)
+  brand: Brand
 }

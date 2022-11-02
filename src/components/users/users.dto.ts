@@ -1,4 +1,4 @@
-import { IsString, IsNotEmpty } from 'class-validator';
+import { IsString, IsNotEmpty, IsPositive, IsOptional } from 'class-validator';
 
 import { PartialType, ApiProperty } from '@nestjs/swagger'; //Lo apso por aqui apra la documentacion
 
@@ -27,6 +27,12 @@ export class CreateUserSchema {
   @IsNotEmpty()
   @ApiProperty()
   readonly password: string;
+
+  @IsOptional()
+  @IsPositive()
+  @ApiProperty()
+  readonly customerId: number
+
 }
 
 export class UpdateUserSchemas extends PartialType(CreateUserSchema) {}

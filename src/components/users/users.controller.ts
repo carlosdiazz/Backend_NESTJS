@@ -8,10 +8,9 @@ import {
   Body,
   ParseIntPipe,
 } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { UsersService } from './users.service';
 import { CreateUserSchema, UpdateUserSchemas } from './users.dto';
-
-import { ApiTags } from '@nestjs/swagger';
 
 @ApiTags('users')
 @Controller('users')

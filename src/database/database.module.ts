@@ -7,7 +7,7 @@ import { DataSourceOptions } from 'typeorm';
 import { Product } from '../components/products/product.entity';
 import { User } from '../components/users/users.entity';
 import { Customer } from '../components/costumers/costumer.entity';
-
+import { Brand } from '../components/brands/brands.entity';
 //const client = new Client({
 //  user: VARIABLES.database.user,
 //  host: VARIABLES.database.host,
@@ -29,7 +29,7 @@ import { Customer } from '../components/costumers/costumer.entity';
           username: configService.postgres.dbUser,
           password: configService.postgres.dbPassword,
           database: configService.postgres.dbName,
-          entities: [Product, User, Customer],
+          entities: [Product, User, Customer, Brand],
           synchronize: true,
         } as DataSourceOptions),
       //({

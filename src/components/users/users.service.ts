@@ -1,19 +1,24 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
-import { User } from './users.entity';
-//import { Order } from '../orders/order.entity';
-import { CreateUserSchema, UpdateUserSchemas } from './users.dto';
-import { ProductsService } from '../products/products.service';
-//import { ConfigService } from '@nestjs/config';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
+import { Injectable, NotFoundException } from '@nestjs/common';
+
+import { User } from './users.entity';
+import { CreateUserSchema, UpdateUserSchemas } from './users.dto';
+
+import { CostumersService } from '../costumers/costumers.service';
 @Injectable()
 export class UsersService {
-  constructor(@InjectRepository(User) private userRepo: Repository<User>) {}
+  constructor(
+    @InjectRepository(User) private userRepo: Repository<User>,
+    private costumersServices: CostumersService
+  ) { }
 
   findAll() {
     //const apiKey = this.configService.get('API_KEY');
     //console.log(apiKey);
-    return this.userRepo.find();
+    return this.userRepo.find({
+      relations: ['customer']
+    });
   }
 
   async findOne(id: number) {
@@ -24,8 +29,12 @@ export class UsersService {
     return user;
   }
 
-  create(payload: CreateUserSchema) {
+  async create(payload: CreateUserSchema) {
     const newUser = this.userRepo.create(payload);
+    if (payload.customerId) {
+      const customer = await this.costumersServices.findOne(payload.customerId)
+      newUser.customer = customer
+    }
     return this.userRepo.save(newUser);
   }
 

@@ -1,26 +1,40 @@
-import { Controller, Get, Delete, Put, Post } from '@nestjs/common';
+import { Controller, Get, Delete, Put, Post, Body, ParseIntPipe, Param } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
+
+import { BrandsService } from './brands.service';
+import { CreateBrandSchema, UpdateBrandSchemas} from './brands.dto';
 
 @ApiTags('brands')
 @Controller('brands')
 export class BrandsController {
+
+  constructor(private brandService: BrandsService) {}
+
   @Get()
   getAllBrands() {
-    return { message: 'Get all brands' };
+    return this.brandService.findAll();
   }
 
-  @Delete(':id')
-  delete() {
-    return { message: 'Delete brands' };
+  @Get(':idBrand')
+  getOneBrand(@Param('idBrand', ParseIntPipe) idBrand: number) {
+    return this.brandService.findOne(idBrand);
   }
 
-  @Put(':id')
-  update() {
-    return { message: 'Update brands' };
+  @Delete(':idBrand')
+  delete(@Param('idBrand', ParseIntPipe) idBrand: number) {
+    return this.brandService.delete(idBrand);
+  }
+
+  @Put(':idBrand')
+  update(
+    @Param('idBrand', ParseIntPipe) idBrand: number,
+    @Body() data: UpdateBrandSchemas,
+  ) {
+    return this.brandService.update(idBrand, data);
   }
 
   @Post()
-  create() {
-    return { message: 'Create brands' };
+  create(@Body() data: CreateBrandSchema) {
+    return this.brandService.create(data);
   }
 }

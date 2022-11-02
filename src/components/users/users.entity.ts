@@ -4,7 +4,11 @@ import {
   Entity,
   CreateDateColumn,
   UpdateDateColumn,
+  OneToOne,
+  JoinColumn,
 } from 'typeorm';
+
+import { Customer } from '../costumers/costumer.entity';
 
 @Entity()
 export class User {
@@ -24,7 +28,7 @@ export class User {
   email: string;
 
   @Column({ type: 'varchar' })
-  password: string;
+  password: string; //Encripyt
 
   @CreateDateColumn({
     type: 'timestamptz',
@@ -37,4 +41,9 @@ export class User {
     default: () => 'CURRENT_TIMESTAMP',
   })
   updateAt: Date;
+
+  //Relacion de Uno a Uno
+  @OneToOne(() => Customer, (customer) => customer.user, {nullable: true, onDelete: 'SET NULL', onUpdate: 'CASCADE'})
+  @JoinColumn()
+  customer: Customer
 }

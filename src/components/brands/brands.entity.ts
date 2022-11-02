@@ -1,26 +1,25 @@
+//Aqui creamos una relacion Bidirecional
 import {
   PrimaryGeneratedColumn,
   Column,
-  Entity,
   CreateDateColumn,
   UpdateDateColumn,
-  OneToOne,
+  Entity,
+  OneToMany
 } from 'typeorm';
 
-import { User } from '../users/users.entity';
+import { Product } from '../products/product.entity';
+
 @Entity()
-export class Customer {
+export class Brand {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ type: 'varchar' })
+  @Column({ unique: true })
   name: string;
 
-  @Column({ type: 'varchar' })
-  lastName: string;
-
-  @Column({ type: 'varchar' })
-  phone: string;
+  @Column()
+  image: string;
 
   @CreateDateColumn({
     type: 'timestamptz',
@@ -34,6 +33,6 @@ export class Customer {
   })
   updateAt: Date;
 
-  @OneToOne(() => User, (user) => user.customer, {nullable: true})
-  user: User;
+  @OneToMany(() => Product, (product) => product.brand)
+  products: Product[]
 }
