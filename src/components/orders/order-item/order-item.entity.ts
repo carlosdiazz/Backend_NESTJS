@@ -1,25 +1,19 @@
-//Aqui creamos una relacion Bidirecional
 import {
   PrimaryGeneratedColumn,
-  Column,
   CreateDateColumn,
   UpdateDateColumn,
   Entity,
-  OneToMany,
+  Column,
+  ManyToOne,
 } from 'typeorm';
 
-import { Product } from '../products/product.entity';
+import { Product } from '../../products/product.entity';
+import { Order } from '../order.entity';
 
 @Entity()
-export class Brand {
+export class OrderItem {
   @PrimaryGeneratedColumn()
   id: number;
-
-  @Column({ unique: true })
-  name: string;
-
-  @Column()
-  image: string;
 
   @CreateDateColumn({
     type: 'timestamptz',
@@ -33,6 +27,12 @@ export class Brand {
   })
   updateAt: Date;
 
-  @OneToMany(() => Product, (product) => product.brand)
-  products: Product[];
+  @Column({ type: 'int' })
+  quantity: number;
+
+  @ManyToOne(() => Product)
+  product: Product[];
+
+  @ManyToOne(() => Order, (order) => order.items)
+  order: Order;
 }

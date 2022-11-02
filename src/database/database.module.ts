@@ -12,6 +12,8 @@ import { User } from '../components/users/users.entity';
 import { Customer } from '../components/costumers/costumer.entity';
 import { Brand } from '../components/brands/brands.entity';
 import { Category } from '../components/categories/categories.entity';
+import { Order } from '../components/orders/order.entity';
+import { OrderItem } from '../components/orders/order-item/order-item.entity';
 //const client = new Client({
 //  user: VARIABLES.database.user,
 //  host: VARIABLES.database.host,
@@ -33,7 +35,15 @@ import { Category } from '../components/categories/categories.entity';
           username: configService.postgres.dbUser,
           password: configService.postgres.dbPassword,
           database: configService.postgres.dbName,
-          entities: [Product, User, Customer, Brand, Category],
+          entities: [
+            Product,
+            User,
+            Customer,
+            Brand,
+            Category,
+            Order,
+            OrderItem,
+          ],
           synchronize: true,
         } as DataSourceOptions),
       //({

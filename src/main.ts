@@ -13,7 +13,7 @@ async function bootstrap() {
   ); //Aqui hago las validaciones
 
   const config = new DocumentBuilder()
-    .setTitle('Api example')
+    .setTitle('Api Tienda Carlos')
     .setDescription('Esta es una api de Ejemplo')
     .setVersion('1.0')
     .build();
