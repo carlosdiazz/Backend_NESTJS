@@ -31,8 +31,7 @@ export class CreateUserSchema {
   @IsOptional()
   @IsPositive()
   @ApiProperty()
-  readonly customerId: number
-
+  readonly customerId: number;
 }
 
 export class UpdateUserSchemas extends PartialType(CreateUserSchema) {}

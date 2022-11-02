@@ -43,7 +43,11 @@ export class User {
   updateAt: Date;
 
   //Relacion de Uno a Uno
-  @OneToOne(() => Customer, (customer) => customer.user, {nullable: true, onDelete: 'SET NULL', onUpdate: 'CASCADE'})
+  @OneToOne(() => Customer, (customer) => customer.user, {
+    nullable: true,
+    onDelete: 'SET NULL',
+    onUpdate: 'CASCADE',
+  })
   @JoinColumn()
-  customer: Customer
+  customer: Customer;
 }

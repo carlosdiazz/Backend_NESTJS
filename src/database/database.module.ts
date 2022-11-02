@@ -1,13 +1,17 @@
 import { Module, Global } from '@nestjs/common';
 import { ConfigType } from '@nestjs/config';
-import { Client } from 'pg';
-import { config } from '../config/config';
-import { TypeOrmModule } from '@nestjs/typeorm';
 import { DataSourceOptions } from 'typeorm';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { Client } from 'pg';
+
+import { config } from '../config/config';
+
+//Entities
 import { Product } from '../components/products/product.entity';
 import { User } from '../components/users/users.entity';
 import { Customer } from '../components/costumers/costumer.entity';
 import { Brand } from '../components/brands/brands.entity';
+import { Category } from '../components/categories/categories.entity';
 //const client = new Client({
 //  user: VARIABLES.database.user,
 //  host: VARIABLES.database.host,
@@ -29,7 +33,7 @@ import { Brand } from '../components/brands/brands.entity';
           username: configService.postgres.dbUser,
           password: configService.postgres.dbPassword,
           database: configService.postgres.dbName,
-          entities: [Product, User, Customer, Brand],
+          entities: [Product, User, Customer, Brand, Category],
           synchronize: true,
         } as DataSourceOptions),
       //({
