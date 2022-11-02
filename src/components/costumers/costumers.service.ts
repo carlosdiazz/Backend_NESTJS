@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException, BadRequestException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Customer } from './costumer.entity';
@@ -24,9 +24,13 @@ export class CostumersService {
     return costumer;
   }
 
-  create(payload: CreateCostumersSchemas) {
-    const newCostumer = this.costumerRepo.create(payload);
-    return this.costumerRepo.save(newCostumer);
+  async create(payload: CreateCostumersSchemas) {
+    try {
+      const newCostumer = this.costumerRepo.create(payload);
+      return await this.costumerRepo.save(newCostumer);
+    } catch (error) {
+      throw new BadRequestException(`${error.message || 'Unexpected Error'}'`);
+    }
   }
 
   async update(id: number, payload: UpdateCostumersSchemas) {

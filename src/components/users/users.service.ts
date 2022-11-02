@@ -1,6 +1,6 @@
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException, BadRequestException } from '@nestjs/common';
 
 import { User } from './users.entity';
 import { CreateUserSchema, UpdateUserSchemas } from './users.dto';
@@ -10,14 +10,14 @@ import { CostumersService } from '../costumers/costumers.service';
 export class UsersService {
   constructor(
     @InjectRepository(User) private userRepo: Repository<User>,
-    private costumersServices: CostumersService
-  ) { }
+    private costumersServices: CostumersService,
+  ) {}
 
   findAll() {
     //const apiKey = this.configService.get('API_KEY');
     //console.log(apiKey);
     return this.userRepo.find({
-      relations: ['customer']
+      relations: ['customer'],
     });
   }
 
@@ -30,12 +30,18 @@ export class UsersService {
   }
 
   async create(payload: CreateUserSchema) {
-    const newUser = this.userRepo.create(payload);
-    if (payload.customerId) {
-      const customer = await this.costumersServices.findOne(payload.customerId)
-      newUser.customer = customer
+    try {
+      const newUser = this.userRepo.create(payload);
+      if (payload.customerId) {
+        const customer = await this.costumersServices.findOne(
+          payload.customerId,
+        );
+        newUser.customer = customer;
+      }
+      return await this.userRepo.save(newUser);
+    } catch (error) {
+      throw new BadRequestException(`${error.message || 'Unexpected Error'}'`);
     }
-    return this.userRepo.save(newUser);
   }
 
   async update(id: number, payload: UpdateUserSchemas) {

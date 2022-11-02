@@ -14,24 +14,34 @@ export class CreateProductSchemas {
   @IsNotEmpty()
   @ApiProperty({ description: 'El name correcto' })
   readonly name: string;
+
   @IsString()
   @IsNotEmpty()
   @ApiProperty()
   readonly description: string;
+
   @IsUrl()
   @IsNotEmpty()
   @ApiProperty()
   readonly image: string;
+
   @IsNumber()
   @IsNotEmpty()
   @IsPositive()
   @ApiProperty()
   readonly price: number;
+
   @IsNumber()
   @IsNotEmpty()
   @IsPositive()
   @ApiProperty()
   readonly stock: number;
+
+  @IsNumber()
+  @IsNotEmpty()
+  @IsPositive()
+  @ApiProperty()
+  readonly brandId: number;
 }
 
 //Aqui controlo el Upodate con un el mismo esquema de crear y estos parametros son opcionales
