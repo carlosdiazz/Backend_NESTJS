@@ -1,26 +1,37 @@
-import { Injectable, NotFoundException, BadRequestException } from '@nestjs/common';
+import {
+  Injectable,
+  NotFoundException,
+  BadRequestException,
+} from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { Repository, In } from 'typeorm';
 
 import { Product } from './product.entity';
 import { CreateProductSchemas, UpdateProductSchemas } from './product.dto';
 
-import { BrandsService } from '../brands/brands.service';
+import { Category } from '../categories/categories.entity';
+import { Brand } from '../brands/brands.entity';
+//import { BrandsService } from '../brands/brands.service';
+
 @Injectable()
 export class ProductsService {
   constructor(
     @InjectRepository(Product) private productRepo: Repository<Product>,
-    private brandService: BrandsService,
+    @InjectRepository(Category) private categoryRepo: Repository<Category>,
+    @InjectRepository(Brand) private BrandRepo: Repository<Brand>, //private brandService: BrandsService,
   ) {}
 
   findAll() {
     return this.productRepo.find({
-      relations: ['brand']
+      relations: ['brand'],
     });
   }
 
   async findOne(id: number) {
-    const product = await this.productRepo.findOneBy({ id });
+    const product = await this.productRepo.findOne({
+      where: { id },
+      relations: ['brand', 'categories'],
+    });
     if (!product) {
       throw new NotFoundException('El product no fue encontrado');
     }
@@ -37,8 +48,20 @@ export class ProductsService {
     try {
       const newProduct = this.productRepo.create(payload);
       if (payload.brandId) {
-        const brand = await this.brandService.findOne(payload.brandId);
+        const brand = await this.BrandRepo.findOneBy({ id: payload.brandId });
+        if (!brand) {
+          throw new NotFoundException('Este id de Brand no existe');
+        }
         newProduct.brand = brand;
+      }
+      if (payload.categoryId) {
+        const categories = await this.categoryRepo.findBy({
+          id: In(payload.categoryId), //Aqui vinvulos las firentes categories
+        });
+        if (categories.length == 0) {
+          throw new NotFoundException('Este id de Categorie no existe');
+        }
+        newProduct.categories = categories;
       }
       return await this.productRepo.save(newProduct);
     } catch (error) {
@@ -52,7 +75,7 @@ export class ProductsService {
       throw new NotFoundException('El product no fue encontrado');
     }
     if (payload.brandId) {
-      const brand = await this.brandService.findOne(payload.brandId);
+      const brand = await this.BrandRepo.findOneBy({ id: payload.brandId });
       product.brand = brand;
     }
     this.productRepo.merge(product, payload);

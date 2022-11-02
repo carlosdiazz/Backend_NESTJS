@@ -5,9 +5,12 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   ManyToOne,
+  ManyToMany,
+  JoinTable,
 } from 'typeorm';
 
-import {Brand} from '../brands/brands.entity'
+import { Brand } from '../brands/brands.entity';
+import { Category } from '../categories/categories.entity';
 
 @Entity()
 export class Product {
@@ -43,5 +46,10 @@ export class Product {
 
   //QUien tengan el metodo ManyToOne... La relacion si oh si debe de ir aqui
   @ManyToOne(() => Brand, (brand) => brand.products)
-  brand: Brand
+  brand: Brand;
+
+  //Aqui estoy haciendo una relacion de mucho a mucho Bidericional
+  @ManyToMany(() => Category, (category) => category.products)
+  @JoinTable() //Solo debe de ir en un lado de la relacion JoinTable
+  categories: Category[];
 }

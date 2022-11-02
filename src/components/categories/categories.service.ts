@@ -20,10 +20,14 @@ export class CategoriesService {
   }
 
   async findOne(id: number) {
-    const category = await this.categoryRepo.findOneBy({ id });
+    const category = await this.categoryRepo.findOne({
+      where: { id },
+      relations: ['products'],
+    });
     if (!category) {
       throw new NotFoundException('No se encontro esta Category');
     }
+    return category;
   }
 
   async create(data: CreateCategorySchemas) {
@@ -41,6 +45,7 @@ export class CategoriesService {
       throw new NotFoundException('No se encontro esta Category');
     }
     this.categoryRepo.merge(category, data);
+    return this.categoryRepo.save(category);
   }
 
   async delete(id: number) {
@@ -50,4 +55,11 @@ export class CategoriesService {
     }
     return this.categoryRepo.delete(id);
   }
+
+  //async findsById(data: Array<number>) {
+  //  const categories = await this.categoryRepo.findOne({
+  //    where: { id },
+  //    relations: ['products'],
+  //  })
+  //}
 }

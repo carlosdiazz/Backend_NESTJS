@@ -5,6 +5,8 @@ import {
   IsUrl,
   IsNotEmpty,
   IsPositive,
+  IsArray,
+  ArrayMinSize,
 } from 'class-validator';
 //import { PartialType } from '@nestjs/mapped-types';
 import { PartialType, ApiProperty } from '@nestjs/swagger'; //Lo apso por aqui apra la documentacion
@@ -42,6 +44,12 @@ export class CreateProductSchemas {
   @IsPositive()
   @ApiProperty()
   readonly brandId: number;
+
+  @IsArray()
+  @ArrayMinSize(1)
+  @IsNumber({}, { each: true })
+  @ApiProperty()
+  readonly categoryId: number[];
 }
 
 //Aqui controlo el Upodate con un el mismo esquema de crear y estos parametros son opcionales
