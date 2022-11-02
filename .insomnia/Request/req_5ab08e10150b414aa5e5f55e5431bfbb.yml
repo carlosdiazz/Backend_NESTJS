@@ -1,15 +1,22 @@
 _id: req_5ab08e10150b414aa5e5f55e5431bfbb
 type: Request
 parentId: fld_ed1d775aabb34835a7bd3484a317a1eb
-modified: 1666817192071
+modified: 1667403023368
 created: 1666817185158
 url: "{{ _.BASE_URL }}/categories"
 name: createCatgeories
 description: ""
 method: POST
-body: {}
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"name":"Categoria 4"
+    }
 parameters: []
-headers: []
+headers:
+  - name: Content-Type
+    value: application/json
 authentication: {}
 metaSortKey: -1666798573600.5
 isPrivate: false

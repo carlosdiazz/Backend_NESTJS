@@ -1,25 +1,21 @@
-_id: req_f362a5b99b304da7b832678e3bb8f53a
+_id: req_f113a69575db4652a14b3634d0ccc297
 type: Request
-parentId: fld_ebea3b853e1948619260d73d48077545
-modified: 1667402879221
-created: 1666817686518
-url: "{{ _.BASE_URL }}/brands"
-name: createBrands
+parentId: fld_63a64e5987de4de59402627491525f69
+modified: 1667416101313
+created: 1667415984908
+url: "{{ _.BASE_URL }}/products/8/category/5"
+name: addCategoryByProduct
 description: ""
-method: POST
+method: PUT
 body:
   mimeType: application/json
-  text: |-
-    {
-    	"name":"Marca 1",
-    	"image":"http://jose.com/2"
-    }
+  text: ""
 parameters: []
 headers:
   - name: Content-Type
     value: application/json
 authentication: {}
-metaSortKey: -1666807795445.125
+metaSortKey: -1665414999418.375
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true
