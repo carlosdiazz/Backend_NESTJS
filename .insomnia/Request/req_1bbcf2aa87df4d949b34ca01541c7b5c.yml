@@ -1,0 +1,21 @@
+_id: req_1bbcf2aa87df4d949b34ca01541c7b5c
+type: Request
+parentId: fld_ed1d775aabb34835a7bd3484a317a1eb
+modified: 1667398365755
+created: 1667398364004
+url: "{{ _.BASE_URL }}/categories/2"
+name: getOneCatgeories
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1666805131783
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
