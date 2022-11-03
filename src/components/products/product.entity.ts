@@ -8,12 +8,13 @@ import {
   ManyToMany,
   JoinTable,
   Index,
+  JoinColumn,
 } from 'typeorm';
 
 import { Brand } from '../brands/brands.entity';
 import { Category } from '../categories/categories.entity';
 
-@Entity()
+@Entity({ name: 'products' })
 @Index(['price', 'stock'])
 export class Product {
   @PrimaryGeneratedColumn()
@@ -36,12 +37,14 @@ export class Product {
   image: string;
 
   @CreateDateColumn({
+    name: 'create_at',
     type: 'timestamptz',
     default: () => 'CURRENT_TIMESTAMP',
   })
   createAt: Date;
 
   @UpdateDateColumn({
+    name: 'update_at',
     type: 'timestamptz',
     default: () => 'CURRENT_TIMESTAMP',
   })
@@ -49,10 +52,20 @@ export class Product {
 
   //QUien tengan el metodo ManyToOne... La relacion si oh si debe de ir aqui
   @ManyToOne(() => Brand, (brand) => brand.products)
+  @JoinColumn({ name: 'brand_id' })
   brand: Brand;
 
   //Aqui estoy haciendo una relacion de mucho a mucho Bidericional
   @ManyToMany(() => Category, (category) => category.products)
-  @JoinTable() //Solo debe de ir en un lado de la relacion JoinTable
+  //Aqui creo la tabla secundaria y coloco los nombre que quiero
+  @JoinTable({
+    name: 'products_has_categories',
+    joinColumn: {
+      name: 'product_id',
+    },
+    inverseJoinColumn: {
+      name: 'category_id',
+    },
+  }) //Solo debe de ir en un lado de la relacion JoinTable
   categories: Category[];
 }
