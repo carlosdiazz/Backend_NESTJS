@@ -1,7 +1,7 @@
 _id: req_d3a03216b5994f11ad25f41443347966
 type: Request
 parentId: fld_878ee2f615134b06ba5f6eabeca4b700
-modified: 1667482622506
+modified: 1667501490536
 created: 1666816977643
 url: "{{ _.BASE_URL }}/orders"
 name: createOrders
@@ -11,7 +11,7 @@ body:
   mimeType: application/json
   text: |-
     {
-    	"customerId":2
+    	"customerId":1
     }
 parameters: []
 headers:

@@ -1,9 +1,9 @@
 _id: req_16332aa1041c45e8bed5085ac2f18c1a
 type: Request
 parentId: fld_b08f3550a85a46b287455095d8ffc6d3
-modified: 1667491630368
+modified: 1667492634785
 created: 1667490541164
-url: "{{ _.BASE_URL }}/products?orderBy=price&order=DESC&brandId=2"
+url: "{{ _.BASE_URL }}/products?orderBy=price&order=DESC&brandId=1"
 name: getAllProductQueryOrder
 description: ""
 method: GET

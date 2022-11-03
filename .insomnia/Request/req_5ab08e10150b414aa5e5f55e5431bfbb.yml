@@ -1,7 +1,7 @@
 _id: req_5ab08e10150b414aa5e5f55e5431bfbb
 type: Request
 parentId: fld_ed1d775aabb34835a7bd3484a317a1eb
-modified: 1667403023368
+modified: 1667501352121
 created: 1666817185158
 url: "{{ _.BASE_URL }}/categories"
 name: createCatgeories
@@ -11,7 +11,7 @@ body:
   mimeType: application/json
   text: |-
     {
-    	"name":"Categoria 4"
+    	"name":"Categoria 5"
     }
 parameters: []
 headers:
