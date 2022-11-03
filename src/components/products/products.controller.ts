@@ -7,13 +7,17 @@ import {
   Body,
   Put,
   Delete,
-  HttpStatus,
-  HttpCode,
+  //HttpStatus,
+  //HttpCode,
   ParseIntPipe,
 } from '@nestjs/common';
 import { ProductsService } from './products.service';
 import { ParseIntPipe2 } from '../../common/parse-int.pipe';
-import { CreateProductSchemas, UpdateProductSchemas } from './product.dto';
+import {
+  CreateProductSchemas,
+  UpdateProductSchemas,
+  FilterProductsDto,
+} from './product.dto';
 import { ApiTags } from '@nestjs/swagger';
 
 @ApiTags('products')
@@ -22,11 +26,16 @@ export class ProductsController {
   constructor(private productsService: ProductsService) {}
 
   @Get()
-  getAllProduct(@Query('limit') limit = 100, @Query('offset') offset = 0) {
+  getAllProduct(
+    @Query() params: FilterProductsDto,
+    //@Query('limit') limit = 100,
+    //@Query('offset') offset = 0,
+    //@Query('brand') brand: string,
+  ) {
     //return {
     //  message: `Get all products el Offeset es ${offset} y el limit es ${limit}`,
     //};
-    return this.productsService.findAll();
+    return this.productsService.findAll(params);
   }
 
   @Get(':idProduct')

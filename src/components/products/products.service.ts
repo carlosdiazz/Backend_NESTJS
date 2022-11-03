@@ -4,10 +4,14 @@ import {
   BadRequestException,
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository, In } from 'typeorm';
+import { Repository, In, Between, FindOptionsWhere } from 'typeorm';
 
 import { Product } from './product.entity';
-import { CreateProductSchemas, UpdateProductSchemas } from './product.dto';
+import {
+  CreateProductSchemas,
+  UpdateProductSchemas,
+  FilterProductsDto,
+} from './product.dto';
 
 import { Category } from '../categories/categories.entity';
 import { Brand } from '../brands/brands.entity';
@@ -21,7 +25,35 @@ export class ProductsService {
     @InjectRepository(Brand) private BrandRepo: Repository<Brand>, //private brandService: BrandsService,
   ) {}
 
-  findAll() {
+  findAll(parmas?: FilterProductsDto) {
+    if (parmas) {
+      const whereFilter: FindOptionsWhere<Product> = {};
+      const orderFilter = {};
+
+      const { limit, offset, minPrice, maxPrice, orderBy, order, brandId } =
+        parmas;
+
+      if (minPrice && maxPrice) {
+        whereFilter.price = Between(minPrice, maxPrice);
+      }
+      if (orderBy && order) {
+        orderFilter[orderBy] = order;
+      }
+
+      if (brandId) {
+        whereFilter.brand = { id: brandId };
+      }
+
+      return this.productRepo.find({
+        relations: {
+          brand: {},
+        },
+        where: whereFilter,
+        take: limit,
+        skip: offset,
+        order: orderFilter,
+      });
+    }
     return this.productRepo.find({
       relations: {
         brand: {},

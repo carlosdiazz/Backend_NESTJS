@@ -7,6 +7,10 @@ import {
   IsPositive,
   IsArray,
   ArrayMinSize,
+  IsOptional,
+  Min,
+  ValidateIf,
+  IsEnum,
 } from 'class-validator';
 //import { PartialType } from '@nestjs/mapped-types';
 import { PartialType, ApiProperty } from '@nestjs/swagger'; //Lo apso por aqui apra la documentacion
@@ -54,3 +58,43 @@ export class CreateProductSchemas {
 
 //Aqui controlo el Upodate con un el mismo esquema de crear y estos parametros son opcionales
 export class UpdateProductSchemas extends PartialType(CreateProductSchemas) {}
+
+export class FilterProductsDto {
+  @IsOptional()
+  //@IsNumber()
+  @IsPositive()
+  @ApiProperty()
+  readonly limit: number;
+
+  @IsOptional()
+  @IsNumber()
+  @Min(0)
+  @ApiProperty()
+  readonly offset: number;
+
+  @IsOptional()
+  @IsPositive()
+  @ApiProperty()
+  readonly minPrice: number;
+
+  @ValidateIf((item) => item.minPrice) //Si existe un minPrice, el maxprice debe de ser obligatorio
+  @IsPositive()
+  @ApiProperty()
+  readonly maxPrice: number;
+
+  @IsOptional()
+  @ApiProperty({ enum: ['price', 'id'] })
+  @IsEnum(['price', 'id'])
+  readonly orderBy: string;
+
+  @ValidateIf((item) => item.orderBy)
+  @ApiProperty({ enum: ['ASC', 'DESC'] })
+  @IsEnum(['ASC', 'DESC'])
+  readonly order: string;
+  //readonly brandId: number;
+
+  @ApiProperty()
+  @IsOptional()
+  @IsNumber()
+  readonly brandId: number;
+}
