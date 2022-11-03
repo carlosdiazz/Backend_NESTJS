@@ -1,10 +1,10 @@
-_id: req_6ebe802fc8884160accb5154ccb62278
+_id: req_a80280b7930f436eaa519ac77b2f7030
 type: Request
 parentId: fld_63a64e5987de4de59402627491525f69
-modified: 1667402974214
-created: 1666816724686
-url: "{{ _.BASE_URL }}/products/3"
-name: deleteProduct
+modified: 1667416076233
+created: 1667414897431
+url: "{{ _.BASE_URL }}/products/8/category/3"
+name: deleteCategoryByProduct
 description: ""
 method: DELETE
 body:
@@ -15,7 +15,7 @@ headers:
   - name: Content-Type
     value: multipart/form-data
 authentication: {}
-metaSortKey: -1665308671530.25
+metaSortKey: -1665202343642.125
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

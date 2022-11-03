@@ -1,9 +1,9 @@
 _id: req_6ee0f8670d2d4be895592e480f9efef2
 type: Request
 parentId: fld_63a64e5987de4de59402627491525f69
-modified: 1666887295660
+modified: 1667416038510
 created: 1666816373366
-url: "{{ _.BASE_URL }}/products/34"
+url: "{{ _.BASE_URL }}/products/8"
 name: updateProduct
 description: ""
 method: PUT
@@ -11,8 +11,7 @@ body:
   mimeType: application/json
   text: |-
     {
-    	"name":"Producto 1",
-    	"price":12
+    	"categoryId": [1,2,3]
     }
 parameters: []
 headers:

@@ -1,7 +1,7 @@
 _id: req_61eab9ec165048fca190c78867336536
 type: Request
 parentId: fld_6a51adc918154548a9e25ebd8d26afcd
-modified: 1667356255711
+modified: 1667421205359
 created: 1666817378522
 url: "{{ _.BASE_URL }}/costumers"
 name: createCostumers
@@ -11,7 +11,7 @@ body:
   mimeType: application/json
   text: |-
     {
-    	"name":"Customers1",
+    	"name":"Customers 1",
     	"lastName":"PEdro",
     	"phone":"809-573-7775"
     }

@@ -1,15 +1,22 @@
 _id: req_c59812bb69c1460f9e3d364269407cb6
 type: Request
 parentId: fld_ed1d775aabb34835a7bd3484a317a1eb
-modified: 1666817163383
+modified: 1667398609203
 created: 1666817161013
-url: "{{ _.BASE_URL }}/categories/34"
+url: "{{ _.BASE_URL }}/categories/1"
 name: updateCatgeories
 description: ""
 method: PUT
-body: {}
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"name":"Refrescos"
+    }
 parameters: []
-headers: []
+headers:
+  - name: Content-Type
+    value: application/json
 authentication: {}
 metaSortKey: -1666799885237
 isPrivate: false

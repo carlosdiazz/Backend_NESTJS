@@ -1,17 +1,17 @@
-_id: req_1bbcf2aa87df4d949b34ca01541c7b5c
+_id: req_24b68ce33c5e4e0ea9b3b7e6b2dfceda
 type: Request
-parentId: fld_ed1d775aabb34835a7bd3484a317a1eb
-modified: 1667398509993
-created: 1667398364004
-url: "{{ _.BASE_URL }}/categories/3"
-name: getOneCatgeories
+parentId: fld_878ee2f615134b06ba5f6eabeca4b700
+modified: 1667420713035
+created: 1667420698064
+url: "{{ _.BASE_URL }}/orders/23"
+name: getAOneOrders
 description: ""
 method: GET
 body: {}
 parameters: []
 headers: []
 authentication: {}
-metaSortKey: -1666805131783
+metaSortKey: -1666807777417.25
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

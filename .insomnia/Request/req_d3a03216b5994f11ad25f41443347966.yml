@@ -1,15 +1,22 @@
 _id: req_d3a03216b5994f11ad25f41443347966
 type: Request
 parentId: fld_878ee2f615134b06ba5f6eabeca4b700
-modified: 1666816983374
+modified: 1667421475472
 created: 1666816977643
 url: "{{ _.BASE_URL }}/orders"
 name: createOrders
 description: ""
 method: POST
-body: {}
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"customerId":2
+    }
 parameters: []
-headers: []
+headers:
+  - name: Content-Type
+    value: application/json
 authentication: {}
 metaSortKey: -1666807768270.375
 isPrivate: false
