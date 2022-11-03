@@ -1,7 +1,7 @@
 _id: req_97d742d43c5b465d9603032381aa6d33
 type: Request
-parentId: fld_63a64e5987de4de59402627491525f69
-modified: 1667418554091
+parentId: fld_b08f3550a85a46b287455095d8ffc6d3
+modified: 1667490003942
 created: 1666818324073
 url: "{{ _.BASE_URL }}/products/7"
 name: getOneProduct
@@ -11,7 +11,7 @@ body: {}
 parameters: []
 headers: []
 authentication: {}
-metaSortKey: -1666371950411.5
+metaSortKey: -1666797262064
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

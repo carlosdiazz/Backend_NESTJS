@@ -1,7 +1,7 @@
 _id: req_f362a5b99b304da7b832678e3bb8f53a
 type: Request
 parentId: fld_ebea3b853e1948619260d73d48077545
-modified: 1667402879221
+modified: 1667491330763
 created: 1666817686518
 url: "{{ _.BASE_URL }}/brands"
 name: createBrands
@@ -11,7 +11,7 @@ body:
   mimeType: application/json
   text: |-
     {
-    	"name":"Marca 1",
+    	"name":"Marca 2",
     	"image":"http://jose.com/2"
     }
 parameters: []

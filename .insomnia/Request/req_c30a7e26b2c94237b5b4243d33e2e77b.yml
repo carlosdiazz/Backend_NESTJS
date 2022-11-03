@@ -1,24 +1,26 @@
-_id: req_d3a03216b5994f11ad25f41443347966
+_id: req_c30a7e26b2c94237b5b4243d33e2e77b
 type: Request
-parentId: fld_878ee2f615134b06ba5f6eabeca4b700
-modified: 1667482622506
-created: 1666816977643
-url: "{{ _.BASE_URL }}/orders"
-name: createOrders
+parentId: fld_fc51dd469d0b46a7b88af8f196d95d78
+modified: 1667485226108
+created: 1667482625056
+url: "{{ _.BASE_URL }}/order-item"
+name: createOrder-Item
 description: ""
 method: POST
 body:
   mimeType: application/json
   text: |-
     {
-    	"customerId":2
+    	"orderId":1,
+    	"productId":8,
+    	"quantity":2
     }
 parameters: []
 headers:
   - name: Content-Type
     value: application/json
 authentication: {}
-metaSortKey: -1666807768270.375
+metaSortKey: -1667482625056
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

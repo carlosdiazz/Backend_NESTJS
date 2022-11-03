@@ -1,9 +1,9 @@
 _id: req_24b68ce33c5e4e0ea9b3b7e6b2dfceda
 type: Request
 parentId: fld_878ee2f615134b06ba5f6eabeca4b700
-modified: 1667420713035
+modified: 1667483135388
 created: 1667420698064
-url: "{{ _.BASE_URL }}/orders/23"
+url: "{{ _.BASE_URL }}/orders/1"
 name: getAOneOrders
 description: ""
 method: GET

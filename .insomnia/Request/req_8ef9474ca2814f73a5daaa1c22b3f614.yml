@@ -1,7 +1,7 @@
 _id: req_8ef9474ca2814f73a5daaa1c22b3f614
 type: Request
 parentId: fld_63a64e5987de4de59402627491525f69
-modified: 1667403049532
+modified: 1667491366857
 created: 1666808007710
 url: "{{ _.BASE_URL }}/products"
 name: createProduct
@@ -11,12 +11,12 @@ body:
   mimeType: application/json
   text: |-
     {
-    	"name": "Product 4",
+    	"name": "Products 5",
     	"description": "Descripcion",
-    	"price": 100,
+    	"price": 5,
     	"image":"https://platzi.com/",
-    	"stock":34,
-    	"brandId":1,
+    	"stock":50,
+    	"brandId":2,
     	"categoryId":[1,2,3]
     }
 parameters: []

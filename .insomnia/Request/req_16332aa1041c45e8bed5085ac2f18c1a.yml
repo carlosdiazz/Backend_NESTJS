@@ -1,17 +1,17 @@
-_id: req_63b2bc37fbdb4f41b60398c755dbd416
+_id: req_16332aa1041c45e8bed5085ac2f18c1a
 type: Request
 parentId: fld_b08f3550a85a46b287455095d8ffc6d3
-modified: 1667490002224
-created: 1666797261964
-url: "{{ _.BASE_URL }}/products"
-name: getAllProduct
+modified: 1667491630368
+created: 1667490541164
+url: "{{ _.BASE_URL }}/products?orderBy=price&order=DESC&brandId=2"
+name: getAllProductQueryOrder
 description: ""
 method: GET
 body: {}
 parameters: []
 headers: []
 authentication: {}
-metaSortKey: -1666797262089
+metaSortKey: -1666371950399
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true
