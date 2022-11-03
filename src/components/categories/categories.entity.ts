@@ -6,6 +6,7 @@ import {
   UpdateDateColumn,
   ManyToMany,
 } from 'typeorm';
+import { Exclude } from 'class-transformer';
 
 import { Product } from '../products/product.entity';
 
@@ -24,6 +25,7 @@ export class Category {
   })
   createAt: Date;
 
+  @Exclude()
   @UpdateDateColumn({
     name: 'update_at',
     type: 'timestamptz',

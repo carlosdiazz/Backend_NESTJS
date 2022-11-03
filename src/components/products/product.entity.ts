@@ -10,6 +10,7 @@ import {
   Index,
   JoinColumn,
 } from 'typeorm';
+import { Exclude } from 'class-transformer';
 
 import { Brand } from '../brands/brands.entity';
 import { Category } from '../categories/categories.entity';
@@ -43,6 +44,7 @@ export class Product {
   })
   createAt: Date;
 
+  @Exclude()
   @UpdateDateColumn({
     name: 'update_at',
     type: 'timestamptz',

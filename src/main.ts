@@ -1,4 +1,4 @@
-import { NestFactory } from '@nestjs/core';
+import { NestFactory, Reflector } from '@nestjs/core';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { ValidationPipe, ClassSerializerInterceptor } from '@nestjs/common';
 import { AppModule } from './app/app.module';
@@ -14,6 +14,8 @@ async function bootstrap() {
       },
     }),
   ); //Aqui hago las validaciones
+  //Aqui Debajo podemos validar informacion antes que el controlador reciba el dato
+  app.useGlobalInterceptors(new ClassSerializerInterceptor(app.get(Reflector)));
 
   const config = new DocumentBuilder()
     .setTitle('Api Tienda Carlos')

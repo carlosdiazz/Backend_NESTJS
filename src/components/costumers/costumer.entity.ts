@@ -7,8 +7,9 @@ import {
   OneToOne,
   OneToMany,
 } from 'typeorm';
-import { Order } from '../orders/order.entity';
+import { Exclude } from 'class-transformer';
 
+import { Order } from '../orders/order.entity';
 import { User } from '../users/users.entity';
 @Entity({ name: 'customers' })
 export class Customer {
@@ -31,6 +32,7 @@ export class Customer {
   })
   createAt: Date;
 
+  @Exclude()
   @UpdateDateColumn({
     name: 'update_at',
     type: 'timestamptz',
