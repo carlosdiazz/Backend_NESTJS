@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
@@ -16,9 +16,15 @@ export class OrderItemService {
 
   async create(data: CreateOrderItemDto) {
     const order = await this.orderRepo.findOneBy({ id: data.orderId });
-    const product = await this.productRepo.find({
-      where: { id: data.productId },
+    if (!order) {
+      throw new NotFoundException('No se encontro el ID de esta orden');
+    }
+    const product = await this.productRepo.findOneBy({
+      id: data.productId,
     });
+    if (!product) {
+      throw new NotFoundException('No se encontro el ID de este product');
+    }
     const item = new OrderItem();
     item.order = order;
     item.product = product;

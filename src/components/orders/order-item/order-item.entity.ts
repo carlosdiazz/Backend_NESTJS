@@ -31,7 +31,7 @@ export class OrderItem {
   quantity: number;
 
   @ManyToOne(() => Product)
-  product: Product[];
+  product: Product;
 
   @ManyToOne(() => Order, (order) => order.items)
   order: Order;

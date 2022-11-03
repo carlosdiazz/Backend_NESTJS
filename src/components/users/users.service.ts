@@ -21,7 +21,9 @@ export class UsersService {
     //const apiKey = this.configService.get('API_KEY');
     //console.log(apiKey);
     return this.userRepo.find({
-      relations: ['customer'],
+      relations: {
+        customer: {},
+      },
     });
   }
 

@@ -23,14 +23,19 @@ export class ProductsService {
 
   findAll() {
     return this.productRepo.find({
-      relations: ['brand'],
+      relations: {
+        brand: {},
+      },
     });
   }
 
   async findOne(id: number) {
     const product = await this.productRepo.findOne({
       where: { id },
-      relations: ['brand', 'categories'],
+      relations: {
+        brand: {},
+        categories: {},
+      },
     });
     if (!product) {
       throw new NotFoundException('El product no fue encontrado');
@@ -94,7 +99,9 @@ export class ProductsService {
   async addCategoryToProduct(productId: number, categoryId: number) {
     const product = await this.productRepo.findOne({
       where: { id: productId },
-      relations: ['categories'],
+      relations: {
+        categories: {},
+      },
     });
     if (!product) {
       throw new NotFoundException('Este Product no existe');
@@ -110,7 +117,9 @@ export class ProductsService {
   async removeCategoryByProduct(productId: number, categoryId: number) {
     const product = await this.productRepo.findOne({
       where: { id: productId },
-      relations: ['categories'],
+      relations: {
+        categories: {},
+      },
     });
     if (!product) {
       throw new NotFoundException('Este Product no existe');
