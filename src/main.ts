@@ -15,7 +15,7 @@ async function bootstrap() {
     }),
   ); //Aqui hago las validaciones
   //Aqui Debajo podemos validar informacion antes que el controlador reciba el dato
-  app.useGlobalInterceptors(new ClassSerializerInterceptor(app.get(Reflector)));
+  //app.useGlobalInterceptors(new ClassSerializerInterceptor(app.get(Reflector))); //!Desactive esto por MONGO
 
   const config = new DocumentBuilder()
     .setTitle('Api Tienda Carlos')

@@ -10,10 +10,10 @@ export class AppController {
     return this.appService.getHello();
   }
 
-  @Get('MONGO')
-  getMongo() {
-    return this.appService.getTasksMongo();
-  }
+  //@Get('MONGO')
+  //getMongo() {
+  //  return this.appService.getTasksMongo();
+  //}
 
   //@Get('products')
   //getProducts(@Query() params: any) {

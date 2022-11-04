@@ -38,15 +38,15 @@ import { config, validationENV } from '../config/config';
   controllers: [AppController],
   providers: [
     AppService,
-    {
-      provide: 'TASKS',
-      inject: [HttpService],
-      useFactory: async (http: HttpService) => {
-        const taks = http.get('https://jsonplaceholder.typicode.com/todos');
-        const value = (await Promise.resolve(firstValueFrom(taks))).data;
-        return value;
-      },
-    },
+    //{
+    //  provide: 'TASKS',
+    //  inject: [HttpService],
+    //  useFactory: async (http: HttpService) => {
+    //    const taks = http.get('https://jsonplaceholder.typicode.com/todos');
+    //    const value = (await Promise.resolve(firstValueFrom(taks))).data;
+    //    return value;
+    //  },
+    //},
   ],
 })
 export class AppModule {}

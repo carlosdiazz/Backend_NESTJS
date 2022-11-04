@@ -1,9 +1,9 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
+import { HydratedDocument } from 'mongoose';
 import { number } from 'zod';
 
 @Schema()
-export class Product extends Document {
+export class Product {
   @Prop({ required: true })
   nane: string;
 
@@ -19,5 +19,7 @@ export class Product extends Document {
   @Prop({ required: true })
   image: string;
 }
+
+export type CatDocument = HydratedDocument<Product>;
 
 export const ProductSchema = SchemaFactory.createForClass(Product);

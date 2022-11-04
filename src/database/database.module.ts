@@ -2,10 +2,10 @@ import { Module, Global } from '@nestjs/common';
 import { ConfigType } from '@nestjs/config';
 import { DataSourceOptions } from 'typeorm';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Client } from 'pg';
 import { MongooseModule } from '@nestjs/mongoose';
 
-import { MongoClient } from 'mongodb';
+//import { Client } from 'pg';
+//import { MongoClient } from 'mongodb';
 
 import { config } from '../config/config';
 
@@ -26,7 +26,7 @@ import { OrderItem } from '../components/SQL/orders/order-item/order-item.entity
         const { dbConnection, dbHost, dbName, dbPassword, dbPort, dbUser } =
           configService.mongo;
         return {
-          uri: `${dbConnection}://${dbHost}:${dbPort}/?authMechanism=DEFAULT`,
+          uri: `${dbConnection}://${dbHost}:${dbPort}/`,
           user: dbUser,
           pass: dbPassword,
           dbName,
@@ -67,41 +67,41 @@ import { OrderItem } from '../components/SQL/orders/order-item/order-item.entity
     }),
   ],
   providers: [
-    {
-      provide: 'PG',
-      useFactory: (configService: ConfigType<typeof config>) => {
-        const postGres = configService.postgres;
-        const client = new Client({
-          user: postGres.dbUser,
-          host: postGres.dbHost,
-          database: postGres.dbName,
-          password: postGres.dbPassword,
-          port: postGres.dbPort,
-        });
-        client.connect();
-        return client;
-      },
-      inject: [config.KEY],
-    },
-    {
-      provide: 'MONGO',
-      inject: [config.KEY],
-      useFactory: async (configService: ConfigType<typeof config>) => {
-        const { dbConnection, dbHost, dbName, dbPassword, dbPort, dbUser } =
-          configService.mongo;
-        const uri = `${dbConnection}://${dbUser}:${dbPassword}@${dbHost}:${dbPort}/?authMechanism=DEFAULT`;
-        const client = new MongoClient(uri);
-        await client.connect();
-        const database = client.db(dbName);
-        return database;
-      },
-    },
+    //{
+    //  provide: 'PG',
+    //  useFactory: (configService: ConfigType<typeof config>) => {
+    //    const postGres = configService.postgres;
+    //    const client = new Client({
+    //      user: postGres.dbUser,
+    //      host: postGres.dbHost,
+    //      database: postGres.dbName,
+    //      password: postGres.dbPassword,
+    //      port: postGres.dbPort,
+    //    });
+    //    client.connect();
+    //    return client;
+    //  },
+    //  inject: [config.KEY],
+    //},
+    //{
+    //  provide: 'MONGO',
+    //  inject: [config.KEY],
+    //  useFactory: async (configService: ConfigType<typeof config>) => {
+    //    const { dbConnection, dbHost, dbName, dbPassword, dbPort, dbUser } =
+    //      configService.mongo;
+    //    const uri = `${dbConnection}://${dbUser}:${dbPassword}@${dbHost}:${dbPort}/?authMechanism=DEFAULT`;
+    //    const client = new MongoClient(uri);
+    //    await client.connect();
+    //    const database = client.db(dbName);
+    //    return database;
+    //  },
+    //},
     //{
     //  provide: 'API_KEY',
     //  useValue: 'ddd',
     //},
   ],
-  exports: ['PG', TypeOrmModule, 'MONGO', MongooseModule],
+  exports: [TypeOrmModule, MongooseModule],
 })
 export class DatabaseModule {}
 
