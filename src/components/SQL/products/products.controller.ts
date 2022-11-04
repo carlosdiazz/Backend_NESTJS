@@ -12,7 +12,7 @@ import {
   ParseIntPipe,
 } from '@nestjs/common';
 import { ProductsService } from './products.service';
-import { ParseIntPipe2 } from '../../common/parse-int.pipe';
+import { ParseIntPipe2 } from '../../../common/parse-int.pipe';
 import {
   CreateProductSchemas,
   UpdateProductSchemas,

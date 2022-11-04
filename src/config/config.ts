@@ -36,6 +36,14 @@ export const config = registerAs('config', () => {
       dbPassword: process.env.MYSQL_ROOT_PASSWORD,
       dbHost: process.env.MYSQL_HOST,
     },
+    mongo: {
+      dbName: process.env.MONGO_DB,
+      dbUser: process.env.MONGO_USER,
+      dbPassword: process.env.MONGO_PASSWORD,
+      dbPort: Number(process.env.MONGO_PORT),
+      dbHost: process.env.MONGO_HOST,
+      dbConnection: process.env.MONGO_CONNECTION,
+    },
     apiKey: process.env.API_KEy,
   };
 });
@@ -43,6 +51,7 @@ export const config = registerAs('config', () => {
 export const validationENV = () => {
   return Joi.object({
     API_KEY: Joi.number().required(),
+
     DATABASE_NAME: Joi.string().required(),
     DATABASE_PORT: Joi.number().required(),
     POSTGRES_DB_NAME: Joi.string().required(),
@@ -50,5 +59,12 @@ export const validationENV = () => {
     POSTGRES_DB_USER: Joi.string().required(),
     POSTGRES_DB_PASSWORD: Joi.string().required(),
     POSTGRES_DB_HOST: Joi.string().required(),
+
+    MONGO_DB: Joi.string().required(),
+    MONGO_USER: Joi.string().required(),
+    MONGO_PASSWORD: Joi.string().required(),
+    MONGO_PORT: Joi.number().required(),
+    MONGO_HOST: Joi.string().required(),
+    MONGO_CONNECTION: Joi.string().required(),
   });
 };

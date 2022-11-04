@@ -3,28 +3,36 @@ import { ConfigType } from '@nestjs/config';
 import { DataSourceOptions } from 'typeorm';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Client } from 'pg';
+import { MongooseModule } from '@nestjs/mongoose';
+
+import { MongoClient } from 'mongodb';
 
 import { config } from '../config/config';
 
 //Entities
-import { Product } from '../components/products/product.entity';
-import { User } from '../components/users/users.entity';
-import { Customer } from '../components/costumers/costumer.entity';
-import { Brand } from '../components/brands/brands.entity';
-import { Category } from '../components/categories/categories.entity';
-import { Order } from '../components/orders/order.entity';
-import { OrderItem } from '../components/orders/order-item/order-item.entity';
-//const client = new Client({
-//  user: VARIABLES.database.user,
-//  host: VARIABLES.database.host,
-//  database: VARIABLES.database.name,
-//  password: VARIABLES.database.password,
-//  port: VARIABLES.database.port,
-//});
-//client.connect();
+import { Product } from '../components/SQL/products/product.entity';
+import { User } from '../components/SQL/users/users.entity';
+import { Customer } from '../components/SQL/costumers/costumer.entity';
+import { Brand } from '../components/SQL/brands/brands.entity';
+import { Category } from '../components/SQL/categories/categories.entity';
+import { Order } from '../components/SQL/orders/order.entity';
+import { OrderItem } from '../components/SQL/orders/order-item/order-item.entity';
 @Global()
 @Module({
   imports: [
+    MongooseModule.forRootAsync({
+      inject: [config.KEY],
+      useFactory: async (configService: ConfigType<typeof config>) => {
+        const { dbConnection, dbHost, dbName, dbPassword, dbPort, dbUser } =
+          configService.mongo;
+        return {
+          uri: `${dbConnection}://${dbHost}:${dbPort}/?authMechanism=DEFAULT`,
+          user: dbUser,
+          pass: dbPassword,
+          dbName,
+        };
+      },
+    }),
     TypeOrmModule.forRootAsync({
       inject: [config.KEY],
       useFactory: (configService: ConfigType<typeof config>) =>
@@ -75,11 +83,45 @@ import { OrderItem } from '../components/orders/order-item/order-item.entity';
       },
       inject: [config.KEY],
     },
+    {
+      provide: 'MONGO',
+      inject: [config.KEY],
+      useFactory: async (configService: ConfigType<typeof config>) => {
+        const { dbConnection, dbHost, dbName, dbPassword, dbPort, dbUser } =
+          configService.mongo;
+        const uri = `${dbConnection}://${dbUser}:${dbPassword}@${dbHost}:${dbPort}/?authMechanism=DEFAULT`;
+        const client = new MongoClient(uri);
+        await client.connect();
+        const database = client.db(dbName);
+        return database;
+      },
+    },
     //{
     //  provide: 'API_KEY',
     //  useValue: 'ddd',
     //},
   ],
-  exports: ['PG', TypeOrmModule],
+  exports: ['PG', TypeOrmModule, 'MONGO', MongooseModule],
 })
 export class DatabaseModule {}
+
+//const client = new Client({
+//  user: VARIABLES.database.user,
+//  host: VARIABLES.database.host,
+//  database: VARIABLES.database.name,
+//  password: VARIABLES.database.password,
+//  port: VARIABLES.database.port,
+//});
+//client.connect();
+
+//const uri = 'mongodb://root:root@localhost:27017/?authMechanism=DEFAULT';
+//
+//const client = new MongoClient(uri);
+//const connect = async () => {
+//  await client.connect();
+//  const database = client.db('TEST');
+//  const collec = await database.collection('TEST');
+//  const name = await collec.find().toArray();
+//  console.log(name);
+//};
+//connect();

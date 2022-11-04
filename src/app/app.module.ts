@@ -6,14 +6,14 @@ import { firstValueFrom } from 'rxjs';
 //Importaciones Propias
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { UsersModule } from '../components/users/users.module';
-import { ProductsModule } from '../components/products/products.module';
-import { BrandsModule } from '../components/brands/brands.module';
-import { OrdersModule } from '../components/orders/orders.module';
-import { CostumersModule } from '../components/costumers/costumers.module';
-import { CategoriesModule } from '../components/categories/categories.module';
+import { UsersModule } from '../components/SQL/users/users.module';
+import { ProductsModule } from '../components/SQL/products/products.module';
+import { BrandsModule } from '../components/SQL/brands/brands.module';
+import { OrdersModule } from '../components/SQL/orders/orders.module';
+import { CostumersModule } from '../components/SQL/costumers/costumers.module';
+import { CategoriesModule } from '../components/SQL/categories/categories.module';
 import { DatabaseModule } from 'src/database/database.module';
-
+import { ProductsModule2 } from '../components/NOSQL/products/products.module';
 //import { enviroments } from '../config/enviroments';
 import { config, validationENV } from '../config/config';
 
@@ -33,6 +33,7 @@ import { config, validationENV } from '../config/config';
     CategoriesModule,
     HttpModule,
     DatabaseModule,
+    ProductsModule2,
   ],
   controllers: [AppController],
   providers: [
