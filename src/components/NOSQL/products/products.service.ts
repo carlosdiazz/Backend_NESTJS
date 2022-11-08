@@ -1,22 +1,53 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
-import { CreateProductDto, UpdateProductDto } from './products.dto';
+import {
+  Injectable,
+  NotFoundException,
+  BadRequestException,
+} from '@nestjs/common';
+import {
+  CreateProductDto,
+  UpdateProductDto,
+  FilterProductsDto,
+} from './products.dto';
 import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
-import { Product, CatDocument } from './product.entity';
+import { Model, FilterQuery } from 'mongoose';
+import { Product, productSchema } from './product.entity';
 
 @Injectable()
 export class ProductsService {
   constructor(
-    @InjectModel(Product.name) private productModel: Model<CatDocument>,
+    @InjectModel(Product.name) private productModel: Model<productSchema>,
   ) {}
 
-  create(createProductDto: CreateProductDto) {
-    return 'This action adds a new product';
+  async findAll(params?: FilterProductsDto): Promise<Product[]> {
+    const filters: FilterQuery<Product> = {};
+    const {
+      limit = 5,
+      offset = 0,
+      minPrice = 0,
+      maxPrice = 9999999999,
+    } = params;
+    if (minPrice && maxPrice) {
+      filters.price = { $gte: minPrice, $lte: maxPrice };
+    }
+    return await this.productModel
+      .find(filters)
+      .skip(offset * limit)
+      .limit(limit)
+      .exec();
   }
 
-  async findAll(): Promise<Product[]> {
-    return this.productModel.find().exec();
-  }
+  //async findAll(params?: FilterProductsDto) {
+  //  const { limit = 5, offset = 0 } = params;
+  //  const [total, products] = await Promise.all([
+  //    this.productModel.countDocuments(),
+  //    this.productModel
+  //      .find()
+  //      .skip(offset * limit)
+  //      .limit(limit)
+  //      .exec(),
+  //  ]);
+  //  return { total, products };
+  //}
 
   async findOne(id: string): Promise<Product> {
     const product = await this.productModel.findById(id);
@@ -26,11 +57,24 @@ export class ProductsService {
     return product;
   }
 
-  update(id: string, updateProductDto: UpdateProductDto) {
-    return `This action updates a #${id} product`;
+  async create(data: CreateProductDto) {
+    try {
+      const newProduct = new this.productModel(data);
+      return await newProduct.save();
+    } catch (error) {
+      throw new BadRequestException(error.message);
+    }
   }
 
-  remove(id: string) {
-    return `This action removes a #${id} product`;
+  async update(id: string, data: UpdateProductDto) {
+    await this.findOne(id);
+    return await this.productModel
+      .findByIdAndUpdate(id, { $set: data }, { new: true }) //con set solo modifico lo cambio
+      .exec();
+  }
+
+  async remove(id: string) {
+    await this.findOne(id);
+    return await this.productModel.findByIdAndDelete(id);
   }
 }
