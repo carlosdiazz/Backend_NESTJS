@@ -1,0 +1,21 @@
+_id: req_c32aa3ceafdf48c1b1a010879df53047
+type: Request
+parentId: fld_4679f81b0d6d4914a9e232c823fbd64b
+modified: 1667596221197
+created: 1667596202718
+url: "{{ _.BASE_URL }}/products2"
+name: GeallAllProducts
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1667596202718
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
