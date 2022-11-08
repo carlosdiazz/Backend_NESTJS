@@ -1,9 +1,9 @@
-_id: req_8ef9474ca2814f73a5daaa1c22b3f614
+_id: req_09b26d8764e64f92944c9b72977a2823
 type: Request
-parentId: fld_63a64e5987de4de59402627491525f69
-modified: 1667922065250
-created: 1666808007710
-url: "{{ _.BASE_URL }}/products"
+parentId: fld_4679f81b0d6d4914a9e232c823fbd64b
+modified: 1667943747128
+created: 1667922071989
+url: "{{ _.BASE_URL }}/products2"
 name: createProduct
 description: ""
 method: POST
@@ -11,20 +11,18 @@ body:
   mimeType: application/json
   text: |-
     {
-    	"name": "Products 15",
+    	"name": "Product0 NUEVO 7",
     	"description": "Descripcion",
-    	"price": 34,
+    	"price": 10,
     	"image":"https://platzi.com/",
-    	"stock":50,
-    	"brandId":1,
-    	"categoryId":[1,2,3]
+    	"stock":50
     }
 parameters: []
 headers:
   - name: Content-Type
     value: application/json
 authentication: {}
-metaSortKey: -1665946638859
+metaSortKey: -1667596202818
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

@@ -1,0 +1,28 @@
+_id: req_5f6eed6abe414c32b3f154205bd42096
+type: Request
+parentId: fld_4679f81b0d6d4914a9e232c823fbd64b
+modified: 1667938554679
+created: 1667923504441
+url: "{{ _.BASE_URL }}/products2/636a7e0a91d895b20c266bb1"
+name: updateProduct
+description: ""
+method: PUT
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"name": "Products New2"
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+authentication: {}
+metaSortKey: -1667596202793
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
