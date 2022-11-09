@@ -11,7 +11,7 @@ import {
 import { InjectModel } from '@nestjs/mongoose';
 import { Model, FilterQuery } from 'mongoose';
 import { Product, productSchema } from './product.entity';
-
+import { orderByProduct } from '../../../common/enum';
 @Injectable()
 export class ProductsService {
   constructor(
@@ -20,18 +20,41 @@ export class ProductsService {
 
   async findAll(params?: FilterProductsDto): Promise<Product[]> {
     const filters: FilterQuery<Product> = {};
+    const orderFilter = {};
     const {
-      limit = 5,
+      limit = 20,
       offset = 0,
       minPrice = 0,
       maxPrice = 9999999999,
+      order,
+      orderBy,
+      finalDate,
+      initialDate,
     } = params;
+
     if (minPrice && maxPrice) {
       filters.price = { $gte: minPrice, $lte: maxPrice };
     }
+
+    if (initialDate && finalDate) {
+      filters.createdAt = {
+        $gte: new Date(initialDate),
+        $lt: new Date(finalDate),
+      };
+    }
+
+    if (order && orderBy) {
+      if (order === orderByProduct.ASC) {
+        orderFilter[orderBy] = 1;
+      } else {
+        orderFilter[orderBy] = -1;
+      }
+    }
+
     return await this.productModel
       .find(filters)
       .skip(offset * limit)
+      .sort(orderFilter)
       .limit(limit)
       .exec();
   }

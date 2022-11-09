@@ -8,6 +8,7 @@ import {
   Min,
   ValidateIf,
   IsEnum,
+  IsDate,
 } from 'class-validator';
 
 import { orderByProduct } from '../../../common/enum';
@@ -72,7 +73,15 @@ export class FilterProductsDto {
   readonly orderBy: string;
 
   @ValidateIf((item) => item.orderBy)
-  @ApiProperty({ enum: [orderByProduct.ASC, orderByProduct.DES] })
-  @IsEnum([orderByProduct.ASC, orderByProduct.DES])
+  @ApiProperty({ enum: [orderByProduct.ASC, orderByProduct.DESC] })
+  @IsEnum([orderByProduct.ASC, orderByProduct.DESC])
   readonly order: string;
+
+  @IsOptional()
+  @IsDate()
+  readonly initialDate: Date;
+
+  @ValidateIf((item) => item.initialDate)
+  @IsDate()
+  readonly finalDate: Date;
 }
