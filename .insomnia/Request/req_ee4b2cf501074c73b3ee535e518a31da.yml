@@ -1,10 +1,10 @@
 _id: req_ee4b2cf501074c73b3ee535e518a31da
 type: Request
-parentId: fld_4679f81b0d6d4914a9e232c823fbd64b
-modified: 1667944112760
+parentId: fld_c13644f8725040beae8e2c0663c630e7
+modified: 1668002694357
 created: 1667938598952
-url: "{{ _.BASE_URL }}/products2?limit=999&offset=0&maxPrice=11&minPrice=3"
-name: GetAllProductsQuery
+url: "{{ _.BASE_URL }}/products2?limit=999&offset=0"
+name: limit&offest
 description: ""
 method: GET
 body: {}

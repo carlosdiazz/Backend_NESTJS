@@ -1,17 +1,17 @@
-_id: req_cc8bf1e34146462e8fffb10b1613ae86
+_id: req_11a4426d2f364114964f2620217c6ccc
 type: Request
 parentId: fld_c13644f8725040beae8e2c0663c630e7
-modified: 1668002656164
-created: 1667944555914
-url: "{{ _.BASE_URL }}/products2?orderBy=date&order=DESC"
-name: order&byOrder
+modified: 1668003790321
+created: 1668002739467
+url: "{{ _.BASE_URL }}/products2?initialDate=09-10-2022&finalDate=11-11-2022"
+name: initialDate&finalDate
 description: ""
 method: GET
 body: {}
 parameters: []
 headers: []
 authentication: {}
-metaSortKey: -1667539413937
+metaSortKey: -1667496822263.75
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true
