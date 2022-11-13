@@ -9,7 +9,7 @@ export class Product {
   @Prop({ required: true })
   description: string;
 
-  @Prop({ type: Number, required: true })
+  @Prop({ type: Number, required: true, index: true })
   price: number;
 
   @Prop({ type: Number, required: true })
@@ -24,3 +24,4 @@ export class Product {
 export type productSchema = HydratedDocument<Product>;
 
 export const ProductSchema = SchemaFactory.createForClass(Product);
+ProductSchema.index({ price: 1, stock: -1 });
