@@ -1,24 +1,24 @@
-_id: req_5ab08e10150b414aa5e5f55e5431bfbb
+_id: req_53ae30e6ace943ea828ea577cec4dc5f
 type: Request
-parentId: fld_ed1d775aabb34835a7bd3484a317a1eb
-modified: 1668378142212
-created: 1666817185158
-url: "{{ _.BASE_URL }}/categories"
-name: createCatgeories
+parentId: fld_02ff370378a948dfb83e923ad7eab4ce
+modified: 1668379863171
+created: 1668379861732
+url: "{{ _.BASE_URL }}/categories2/637173499fc409beab561d1d"
+name: deleteCategory
 description: ""
-method: POST
+method: DELETE
 body:
   mimeType: application/json
   text: |-
     {
-    	"name":"Categoria 5"
+    	"name":"category 11"
     }
 parameters: []
 headers:
   - name: Content-Type
     value: application/json
 authentication: {}
-metaSortKey: -1666798573600.5
+metaSortKey: -1667645056826.125
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

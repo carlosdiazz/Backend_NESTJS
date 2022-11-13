@@ -1,24 +1,24 @@
-_id: req_5ab08e10150b414aa5e5f55e5431bfbb
+_id: req_8a6a0724735f4f6086413cb5c86bce77
 type: Request
-parentId: fld_ed1d775aabb34835a7bd3484a317a1eb
-modified: 1668378142212
-created: 1666817185158
-url: "{{ _.BASE_URL }}/categories"
-name: createCatgeories
+parentId: fld_75e454da013a4d01abe836d00e3b209c
+modified: 1668383215439
+created: 1668382106653
+url: "{{ _.BASE_URL }}/brands2/637180cae93856b09d8c7725"
+name: updateBrands
 description: ""
-method: POST
+method: PUT
 body:
   mimeType: application/json
   text: |-
     {
-    	"name":"Categoria 5"
-    }
+    	"name":"Carlos Jose"
+    }	
 parameters: []
 headers:
   - name: Content-Type
     value: application/json
 authentication: {}
-metaSortKey: -1666798573600.5
+metaSortKey: -1668378285578.375
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

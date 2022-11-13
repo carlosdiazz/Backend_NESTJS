@@ -1,24 +1,28 @@
-_id: req_5ab08e10150b414aa5e5f55e5431bfbb
+_id: req_59e0d45a167f4ae2b34d52546f8a5f1d
 type: Request
-parentId: fld_ed1d775aabb34835a7bd3484a317a1eb
-modified: 1668378142212
-created: 1666817185158
-url: "{{ _.BASE_URL }}/categories"
-name: createCatgeories
+parentId: fld_453fe099d8f148fcb5f2e535f57c5dc5
+modified: 1668381568242
+created: 1668381372528
+url: "{{ _.BASE_URL }}/users2"
+name: createUser
 description: ""
 method: POST
 body:
   mimeType: application/json
   text: |-
     {
-    	"name":"Categoria 5"
-    }
+    	"firstName":"Carlos",
+    	"lastName":"Diaz",
+    	"nickname":"carlos01",
+    	"email":"mail@mail.com",
+    	"password":"ds"
+    }	
 parameters: []
 headers:
   - name: Content-Type
     value: application/json
 authentication: {}
-metaSortKey: -1666798573600.5
+metaSortKey: -1668378704208.75
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

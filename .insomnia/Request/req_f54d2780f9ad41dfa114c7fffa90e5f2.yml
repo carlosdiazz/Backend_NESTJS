@@ -1,17 +1,17 @@
-_id: req_c8ec6653445042929d0a56ef2a3dbb6d
+_id: req_f54d2780f9ad41dfa114c7fffa90e5f2
 type: Request
-parentId: fld_4679f81b0d6d4914a9e232c823fbd64b
-modified: 1668379057356
-created: 1667598000322
-url: "{{ _.BASE_URL }}/products2/63716aad336b2be08d5360c3"
-name: getOneProduct
+parentId: fld_453fe099d8f148fcb5f2e535f57c5dc5
+modified: 1668381494516
+created: 1668381239340
+url: "{{ _.BASE_URL }}/users2/63717b2f363c2713f60eec0c"
+name: getOneUser
 description: ""
 method: GET
 body: {}
 parameters: []
 headers: []
 authentication: {}
-metaSortKey: -1667596202749.25
+metaSortKey: -1668379541469.5
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

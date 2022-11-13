@@ -1,24 +1,25 @@
-_id: req_5ab08e10150b414aa5e5f55e5431bfbb
+_id: req_fe25e7d822f94ade97ef741897fdfb12
 type: Request
-parentId: fld_ed1d775aabb34835a7bd3484a317a1eb
-modified: 1668378142212
-created: 1666817185158
-url: "{{ _.BASE_URL }}/categories"
-name: createCatgeories
+parentId: fld_02ff370378a948dfb83e923ad7eab4ce
+modified: 1668380165006
+created: 1668379155964
+url: "{{ _.BASE_URL }}/categories2"
+name: createCategories
 description: ""
 method: POST
 body:
   mimeType: application/json
   text: |-
     {
-    	"name":"Categoria 5"
+    	"name":"category 1",
+    	"image":"https://platzi.com/"
     }
 parameters: []
 headers:
   - name: Content-Type
     value: application/json
 authentication: {}
-metaSortKey: -1666798573600.5
+metaSortKey: -1667791618850.5
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

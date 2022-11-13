@@ -1,24 +1,24 @@
-_id: req_5ab08e10150b414aa5e5f55e5431bfbb
+_id: req_9b7cbf817ab64826b8ec5e3955282daf
 type: Request
-parentId: fld_ed1d775aabb34835a7bd3484a317a1eb
-modified: 1668378142212
-created: 1666817185158
-url: "{{ _.BASE_URL }}/categories"
-name: createCatgeories
+parentId: fld_453fe099d8f148fcb5f2e535f57c5dc5
+modified: 1668383193863
+created: 1668381575950
+url: "{{ _.BASE_URL }}/users2/63717b2f363c2713f60eec0c"
+name: updateUser
 description: ""
-method: POST
+method: PUT
 body:
   mimeType: application/json
   text: |-
     {
-    	"name":"Categoria 5"
-    }
+    	"firstName":"Carlos Jose"
+    }	
 parameters: []
 headers:
   - name: Content-Type
     value: application/json
 authentication: {}
-metaSortKey: -1666798573600.5
+metaSortKey: -1668378285578.375
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

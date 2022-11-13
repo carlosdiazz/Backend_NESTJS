@@ -1,24 +1,24 @@
-_id: req_5ab08e10150b414aa5e5f55e5431bfbb
+_id: req_de0b47664c574b0b9b9056ae45d679d6
 type: Request
-parentId: fld_ed1d775aabb34835a7bd3484a317a1eb
-modified: 1668378142212
-created: 1666817185158
-url: "{{ _.BASE_URL }}/categories"
-name: createCatgeories
+parentId: fld_453fe099d8f148fcb5f2e535f57c5dc5
+modified: 1668383206508
+created: 1668383204367
+url: "{{ _.BASE_URL }}/users2/63717b2f363c2713f60eec0c"
+name: deleteUser
 description: ""
-method: POST
+method: DELETE
 body:
   mimeType: application/json
   text: |-
     {
-    	"name":"Categoria 5"
-    }
+    	"firstName":"Carlos Jose"
+    }	
 parameters: []
 headers:
   - name: Content-Type
     value: application/json
 authentication: {}
-metaSortKey: -1666798573600.5
+metaSortKey: -1668378076263.1875
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true
