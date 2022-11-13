@@ -27,8 +27,8 @@ export class CategoriesService {
 
   async create(data: CreateCategoryDto) {
     try {
-      const newcategory = new this.catyegoryModel(data);
-      return await newcategory.save();
+      const newCategory = new this.catyegoryModel(data);
+      return await newCategory.save();
     } catch (error) {
       throw new BadRequestException(error.message);
     }

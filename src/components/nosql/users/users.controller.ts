@@ -1,7 +1,21 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Put,
+  Param,
+  Delete,
+} from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
+
 import { UsersService } from './users.service';
 import { CreateUserDto, UpdateUserDto } from './user.dto';
+import {
+  ParseObjectIdPipe2,
+} from '../../../common/parse-object-idMongo.pipe';
 
+@ApiTags('User Mongo')
 @Controller('users2')
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
@@ -17,17 +31,20 @@ export class UsersController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.usersService.findOne(+id);
+  findOne(@Param('id', ParseObjectIdPipe2) id: string) {
+    return this.usersService.findOne(id);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
-    return this.usersService.update(+id, updateUserDto);
+  @Put(':id')
+  update(
+    @Param('id', ParseObjectIdPipe2) id: string,
+    @Body() updateUserDto: UpdateUserDto,
+  ) {
+    return this.usersService.update(id, updateUserDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.usersService.remove(+id);
+  remove(@Param('id', ParseObjectIdPipe2) id: string) {
+    return this.usersService.remove(id);
   }
 }
