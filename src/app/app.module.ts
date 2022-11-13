@@ -1,19 +1,25 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { HttpModule, HttpService } from '@nestjs/axios';
-import { firstValueFrom } from 'rxjs';
 
 //Importaciones Propias
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { UsersModule } from '../components/SQL/users/users.module';
-import { ProductsModule } from '../components/SQL/products/products.module';
-import { BrandsModule } from '../components/SQL/brands/brands.module';
-import { OrdersModule } from '../components/SQL/orders/orders.module';
-import { CostumersModule } from '../components/SQL/costumers/costumers.module';
-import { CategoriesModule } from '../components/SQL/categories/categories.module';
+
+//Modolo usando SQL
+import { UsersModule } from '../components/sql/users/users.module';
+import { ProductsModule } from '../components/sql/products/products.module';
+import { BrandsModule } from '../components/sql/brands/brands.module';
+import { OrdersModule } from '../components/sql/orders/orders.module';
+import { CostumersModule } from '../components/sql/costumers/costumers.module';
+import { CategoriesModule } from '../components/sql/categories/categories.module';
 import { DatabaseModule } from 'src/database/database.module';
-import { ProductsModule2 } from '../components/NOSQL/products/products.module';
+
+//Modulos usando NOSQL con Mongo
+import { ProductsModule2 } from '../components/nosql/products/products.module';
+import { CategoriesModule2 } from '../components/nosql/categories/categories.module';
+import { UsersModule2 } from '../components/nosql/users/users.module';
+
 //import { enviroments } from '../config/enviroments';
 import { config, validationENV } from '../config/config';
 
@@ -34,6 +40,8 @@ import { config, validationENV } from '../config/config';
     HttpModule,
     DatabaseModule,
     ProductsModule2,
+    CategoriesModule2,
+    UsersModule2,
   ],
   controllers: [AppController],
   providers: [

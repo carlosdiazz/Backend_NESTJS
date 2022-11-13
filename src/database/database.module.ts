@@ -10,13 +10,13 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { config } from '../config/config';
 
 //Entities
-import { Product } from '../components/SQL/products/product.entity';
-import { User } from '../components/SQL/users/users.entity';
-import { Customer } from '../components/SQL/costumers/costumer.entity';
-import { Brand } from '../components/SQL/brands/brands.entity';
-import { Category } from '../components/SQL/categories/categories.entity';
-import { Order } from '../components/SQL/orders/order.entity';
-import { OrderItem } from '../components/SQL/orders/order-item/order-item.entity';
+import { Product } from '../components/sql/products/product.entity';
+import { User } from '../components/sql/users/users.entity';
+import { Customer } from '../components/sql/costumers/costumer.entity';
+import { Brand } from '../components/sql/brands/brands.entity';
+import { Category } from '../components/sql/categories/categories.entity';
+import { Order } from '../components/sql/orders/order.entity';
+import { OrderItem } from '../components/sql/orders/order-item/order-item.entity';
 @Global()
 @Module({
   imports: [

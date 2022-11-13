@@ -9,10 +9,13 @@ import {
   ValidateIf,
   IsEnum,
   IsDate,
+  ValidateNested,
 } from 'class-validator';
 
 import { orderByProduct } from '../../../common/enum';
 import { PartialType, ApiProperty } from '@nestjs/swagger';
+
+import { CreateCategoryDto } from '../categories/categories.dto';
 
 export class CreateProductDto {
   @IsString()
@@ -41,6 +44,12 @@ export class CreateProductDto {
   @IsPositive()
   @ApiProperty()
   readonly stock: number;
+
+
+  @IsNotEmpty()
+  @ValidateNested() //Aqui valido el objecto que se manda
+  @ApiProperty()
+  readonly category: CreateCategoryDto;
 }
 
 export class UpdateProductDto extends PartialType(CreateProductDto) {}
