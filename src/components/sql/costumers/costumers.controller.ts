@@ -15,7 +15,6 @@ import {
   CreateCostumersSchemas,
   UpdateCostumersSchemas,
 } from './costumers.dto';
-import { number } from 'joi';
 
 @ApiTags('costumers')
 @Controller('costumers')

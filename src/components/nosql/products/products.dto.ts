@@ -45,7 +45,6 @@ export class CreateProductDto {
   @ApiProperty()
   readonly stock: number;
 
-
   @IsNotEmpty()
   @ValidateNested() //Aqui valido el objecto que se manda
   @ApiProperty()

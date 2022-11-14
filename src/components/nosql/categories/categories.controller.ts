@@ -15,10 +15,7 @@ import { CategoriesService } from './categories.service';
 
 import { CreateCategoryDto, UpdateCategoryDto } from './categories.dto';
 
-import {
-  ParseObjectIdPipe2,
-} from '../../../common/parse-object-idMongo.pipe';
-
+import { ParseObjectIdPipe2 } from '../../../common/parse-object-idMongo.pipe';
 
 @ApiTags('Category Mongo')
 @Controller('categories2')
@@ -48,7 +45,7 @@ export class CategoriesController {
     return this.categoriesService.update(id, updateCategoryDto);
   }
 
-  @Delete(':id',)
+  @Delete(':id')
   remove(@Param('id', ParseObjectIdPipe2) id: string) {
     return this.categoriesService.remove(id);
   }

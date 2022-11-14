@@ -20,10 +20,12 @@ export class Product {
 
   createdAt: Date;
 
-  @Prop(raw({
-    name: { type: String },
-    image: { type:  String }
-  }))
+  @Prop(
+    raw({
+      name: { type: String },
+      image: { type: String },
+    }),
+  )
   category: Record<string, any>;
 }
 
