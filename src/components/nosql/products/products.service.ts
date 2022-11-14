@@ -12,10 +12,13 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model, FilterQuery } from 'mongoose';
 import { Product, productSchema } from './product.entity';
 import { orderByProduct } from '../../../common/enum';
+
+import { Brand, brandSchema } from '../brands/brand.entity';
 @Injectable()
 export class ProductsService {
   constructor(
     @InjectModel(Product.name) private productModel: Model<productSchema>,
+    @InjectModel(Brand.name) private brandModel: Model<brandSchema>,
   ) {}
 
   async findAll(params?: FilterProductsDto): Promise<Product[]> {
@@ -56,6 +59,7 @@ export class ProductsService {
       .skip(offset * limit)
       .sort(orderFilter)
       .limit(limit)
+      .populate('id_brand')
       .exec();
   }
 
@@ -82,6 +86,12 @@ export class ProductsService {
 
   async create(data: CreateProductDto) {
     try {
+      const { id_brand } = data;
+      const verificarBrand = await this.brandModel.findById(id_brand);
+      if (!verificarBrand) {
+        throw new NotFoundException('Este ID no tiene un Brand');
+      }
+
       const newProduct = new this.productModel(data);
       return await newProduct.save();
     } catch (error) {

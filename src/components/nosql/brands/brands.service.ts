@@ -1,16 +1,21 @@
-import { Injectable, NotFoundException, BadRequestException } from '@nestjs/common';
-import { InjectModel} from '@nestjs/mongoose';
+import {
+  Injectable,
+  NotFoundException,
+  BadRequestException,
+} from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
 import { Model, FilterQuery } from 'mongoose';
 
 import { CreateBrandDto, UpdateBrandDto } from './brands.dto';
 import { Brand, brandSchema } from './brand.entity';
 
+import { Product, productSchema } from '../products/product.entity';
 
 @Injectable()
 export class BrandsService {
-
   constructor(
-    @InjectModel(Brand.name) private brandModel: Model<brandSchema>
+    @InjectModel(Brand.name) private brandModel: Model<brandSchema>,
+    @InjectModel(Product.name) private productModel: Model<productSchema>,
   ) {}
 
   async create(data: CreateBrandDto) {
@@ -29,7 +34,7 @@ export class BrandsService {
   async findOne(id: string): Promise<Brand> {
     const user = await this.brandModel.findById(id);
     if (!user) {
-      throw new NotFoundException("Este usuario no existe");
+      throw new NotFoundException('Este usuario no existe');
     }
     return user;
   }
@@ -43,6 +48,13 @@ export class BrandsService {
 
   async remove(id: string) {
     await this.findOne(id);
+    const useProdut = await this.productModel.find({ id_brand: id });
+    if (useProdut.length >= 1) {
+      throw new NotFoundException(
+        'No se puede eliminar, Hay productos enlazados con este Brand',
+      );
+    }
+
     return await this.brandModel.findByIdAndDelete(id);
   }
 }

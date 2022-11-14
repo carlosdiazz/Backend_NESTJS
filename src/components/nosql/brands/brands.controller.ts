@@ -1,13 +1,18 @@
-import { Controller, Get, Post, Body, Put, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Put,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 
 import { BrandsService } from './brands.service';
 import { CreateBrandDto, UpdateBrandDto } from './brands.dto';
 
-import {
-  ParseObjectIdPipe2,
-} from '../../../common/parse-object-idMongo.pipe';
-
+import { ParseObjectIdPipe2 } from '../../../common/parse-object-idMongo.pipe';
 
 @ApiTags('Brands Mongo')
 @Controller('brands2')

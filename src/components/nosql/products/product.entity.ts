@@ -1,5 +1,7 @@
 import { Prop, Schema, SchemaFactory, raw } from '@nestjs/mongoose';
-import { HydratedDocument } from 'mongoose';
+import { HydratedDocument, Types } from 'mongoose';
+
+import { Brand } from '../brands/brand.entity';
 
 @Schema({ timestamps: true })
 export class Product {
@@ -20,6 +22,7 @@ export class Product {
 
   createdAt: Date;
 
+  //Relacion de uno a uno embebida
   @Prop(
     raw({
       name: { type: String },
@@ -27,6 +30,10 @@ export class Product {
     }),
   )
   category: Record<string, any>;
+
+  //Relacion de uno a uno por referencia
+  @Prop({ type: Types.ObjectId, ref: Brand.name })
+  id_brand: Brand | Types.ObjectId;
 }
 
 export type productSchema = HydratedDocument<Product>;

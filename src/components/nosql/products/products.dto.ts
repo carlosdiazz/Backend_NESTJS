@@ -10,6 +10,7 @@ import {
   IsEnum,
   IsDate,
   ValidateNested,
+  IsMongoId,
 } from 'class-validator';
 
 import { orderByProduct } from '../../../common/enum';
@@ -49,6 +50,10 @@ export class CreateProductDto {
   @ValidateNested() //Aqui valido el objecto que se manda
   @ApiProperty()
   readonly category: CreateCategoryDto;
+
+  @IsNotEmpty()
+  @IsMongoId()
+  readonly id_brand: string;
 }
 
 export class UpdateProductDto extends PartialType(CreateProductDto) {}

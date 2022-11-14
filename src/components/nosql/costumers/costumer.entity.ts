@@ -1,5 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { HydratedDocument } from 'mongoose';
+import { HydratedDocument, Types } from 'mongoose';
 
 @Schema({ timestamps: true })
 export class Costumer {
@@ -11,6 +11,12 @@ export class Costumer {
 
   @Prop({ required: true })
   phone: string;
+
+  //Relacion de uno a mucho emebedida
+  @Prop({
+    type: [{ name: { type: String }, color: { type: String } }],
+  })
+  skills: Types.Array<Record<string, any>>;
 }
 
 export type costumerSchema = HydratedDocument<Costumer>;
