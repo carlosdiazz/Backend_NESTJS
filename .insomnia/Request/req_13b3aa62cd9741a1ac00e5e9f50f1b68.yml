@@ -1,28 +1,24 @@
-_id: req_59e0d45a167f4ae2b34d52546f8a5f1d
+_id: req_13b3aa62cd9741a1ac00e5e9f50f1b68
 type: Request
-parentId: fld_453fe099d8f148fcb5f2e535f57c5dc5
-modified: 1668454758284
-created: 1668381372528
-url: "{{ _.BASE_URL }}/users2"
-name: createUser
+parentId: fld_89e1aa298d6849db8b90fd27b68d8515
+modified: 1668453410657
+created: 1668434670699
+url: "{{ _.BASE_URL }}/costumers2/63726130d6639f9a878b1928"
+name: updateCostumers
 description: ""
-method: POST
+method: PUT
 body:
   mimeType: application/json
   text: |-
     {
-    	"firstName":"Carlos",
-    	"lastName":"Diaz",
-    	"nickname":"carlos01",
-    	"email":"mail@mail.com",
-    	"password":"ds"
+    	"name":"Carlos Joseeee"
     }	
 parameters: []
 headers:
   - name: Content-Type
     value: application/json
 authentication: {}
-metaSortKey: -1668378704208.75
+metaSortKey: -1668378285578.375
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

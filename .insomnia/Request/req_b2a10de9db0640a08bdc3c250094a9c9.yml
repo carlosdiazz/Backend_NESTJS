@@ -1,18 +1,29 @@
-_id: req_3532bff2b09144f68842bda4daa4d6bc
+_id: req_b2a10de9db0640a08bdc3c250094a9c9
 type: Request
-parentId: fld_75e454da013a4d01abe836d00e3b209c
-modified: 1668441733203
-created: 1668382106649
-url: "{{ _.BASE_URL }}/brands2"
-name: createBrands
+parentId: fld_89e1aa298d6849db8b90fd27b68d8515
+modified: 1668453650013
+created: 1668434670696
+url: "{{ _.BASE_URL }}/costumers2"
+name: createCostumers
 description: ""
 method: POST
 body:
   mimeType: application/json
   text: |-
     {
-    	"name":"jose",
-    	"image":"https://platzi.com/"
+    	"name":"Jose",
+    	"lastName":"Guzman",
+    	"phone":"809-573-7775",
+    	"skills": [
+    		{
+    		"color":"ccc",
+    		"name":"prueba"
+    	},
+    		{
+    		"color":"ccc",
+    		"name":"prueba"
+    	}
+    	]
     }	
 parameters: []
 headers:

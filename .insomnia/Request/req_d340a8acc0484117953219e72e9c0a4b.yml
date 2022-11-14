@@ -1,9 +1,9 @@
 _id: req_d340a8acc0484117953219e72e9c0a4b
 type: Request
 parentId: fld_75e454da013a4d01abe836d00e3b209c
-modified: 1668383224185
+modified: 1668442958743
 created: 1668383221441
-url: "{{ _.BASE_URL }}/brands2/637180cae93856b09d8c7725"
+url: "{{ _.BASE_URL }}/brands2/637266867238515a178824a0"
 name: deleteBrands
 description: ""
 method: DELETE
