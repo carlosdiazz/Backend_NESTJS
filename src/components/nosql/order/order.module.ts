@@ -6,6 +6,7 @@ import { OrderController } from './order.controller';
 import { Order, OrderSchema } from './order.entity';
 
 import { Costumer, CostumerSchema } from '../costumers/costumer.entity';
+import { Product, ProductSchema } from '../products/product.entity';
 
 @Module({
   imports: [
@@ -17,10 +18,14 @@ import { Costumer, CostumerSchema } from '../costumers/costumer.entity';
       {
         name: Costumer.name,
         schema: CostumerSchema,
-      }
-    ])
+      },
+      {
+        name: Product.name,
+        schema: ProductSchema,
+      },
+    ]),
   ],
   controllers: [OrderController],
-  providers: [OrderService]
+  providers: [OrderService],
 })
 export class OrderModule2 {}
