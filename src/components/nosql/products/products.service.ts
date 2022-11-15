@@ -3,14 +3,16 @@ import {
   NotFoundException,
   BadRequestException,
 } from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model, FilterQuery } from 'mongoose';
+
 import {
   CreateProductDto,
   UpdateProductDto,
   FilterProductsDto,
 } from './products.dto';
-import { InjectModel } from '@nestjs/mongoose';
-import { Model, FilterQuery } from 'mongoose';
 import { Product, productSchema } from './product.entity';
+
 import { orderByProduct } from '../../../common/enum';
 
 import { Brand, brandSchema } from '../brands/brand.entity';

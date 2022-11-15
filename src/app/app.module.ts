@@ -21,7 +21,7 @@ import { CategoriesModule2 } from '../components/nosql/categories/categories.mod
 import { UsersModule2 } from '../components/nosql/users/users.module';
 import { BrandsModule2 } from '../components/nosql/brands/brands.module';
 import { CostumersModule2 } from '../components/nosql/costumers/costumers.module';
-
+import { OrderModule2 } from '../components/nosql/order/order.module';
 //import { enviroments } from '../config/enviroments';
 import { config, validationENV } from '../config/config';
 
@@ -46,6 +46,7 @@ import { config, validationENV } from '../config/config';
     UsersModule2,
     BrandsModule2,
     CostumersModule2,
+    OrderModule2,
   ],
   controllers: [AppController],
   providers: [

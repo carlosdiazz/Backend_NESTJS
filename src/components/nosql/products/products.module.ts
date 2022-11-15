@@ -4,6 +4,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { ProductsService } from './products.service';
 import { ProductsController } from './products.controller';
 import { ProductSchema, Product } from './product.entity';
+
 import { Brand, BrandSchema } from '../brands/brand.entity';
 
 @Module({
