@@ -1,24 +1,25 @@
-_id: req_79c8858caa2c4285894b6cf5a26d4c72
+_id: req_6fbfbfe428e84ae5a29c44a875fcf140
 type: Request
-parentId: fld_89e1aa298d6849db8b90fd27b68d8515
-modified: 1668519113809
-created: 1668434670706
-url: "{{ _.BASE_URL }}/costumers2/63726130d6639f9a878b1928"
-name: deleteCostumers
+parentId: fld_8cc7129e16ed4300a5f849052edaf09a
+modified: 1668526736436
+created: 1668526641600
+url: "{{ _.BASE_URL
+  }}/order2/6373aced4a0f96aa049e20c9/product/636a7e0a91d895b20c266bb5"
+name: deleteProductByOrder
 description: ""
 method: DELETE
 body:
   mimeType: application/json
   text: |-
     {
-    	"name":"Carlos Jose"
-    }	
+    	"name":"category 11"
+    }
 parameters: []
 headers:
   - name: Content-Type
     value: application/json
 authentication: {}
-metaSortKey: -1668378180920.7812
+metaSortKey: -1667620629822.0625
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

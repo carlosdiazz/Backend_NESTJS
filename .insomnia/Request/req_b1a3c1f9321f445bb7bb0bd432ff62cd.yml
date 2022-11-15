@@ -1,24 +1,24 @@
-_id: req_79c8858caa2c4285894b6cf5a26d4c72
+_id: req_b1a3c1f9321f445bb7bb0bd432ff62cd
 type: Request
-parentId: fld_89e1aa298d6849db8b90fd27b68d8515
-modified: 1668519113809
-created: 1668434670706
-url: "{{ _.BASE_URL }}/costumers2/63726130d6639f9a878b1928"
-name: deleteCostumers
+parentId: fld_8cc7129e16ed4300a5f849052edaf09a
+modified: 1668528692243
+created: 1668527283455
+url: "{{ _.BASE_URL }}/order2/6373aced4a0f96aa049e20c9/products"
+name: AddProductByOrder
 description: ""
-method: DELETE
+method: PUT
 body:
   mimeType: application/json
   text: |-
     {
-    	"name":"Carlos Jose"
-    }	
+    	"productsIds":["637266777238515a1788249c"]
+    }
 parameters: []
 headers:
   - name: Content-Type
     value: application/json
 authentication: {}
-metaSortKey: -1668378180920.7812
+metaSortKey: -1667742764842.375
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

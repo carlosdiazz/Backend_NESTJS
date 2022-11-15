@@ -1,7 +1,7 @@
 _id: req_2de1192f30de447d8fbe34d85e05585e
 type: Request
 parentId: fld_8cc7129e16ed4300a5f849052edaf09a
-modified: 1668483468885
+modified: 1668527266849
 created: 1668479177197
 url: "{{ _.BASE_URL }}/order2"
 name: createOrder
@@ -9,10 +9,10 @@ description: ""
 method: POST
 body:
   mimeType: application/json
-  text: |-
+  text: >-
     {
-    	"id_costumer":"63730014f9697437b64c5430",
-    	"products":["63716aad336b2be08d5360c3"]
+    	"id_costumer":"637295139ed1ee7c5a65a294",
+    	"products":["636a7e0a91d895b20c266bb5","636ab909738cce9219706b1f", "636ab90f738cce9219706b23"]
     }
 parameters: []
 headers:
