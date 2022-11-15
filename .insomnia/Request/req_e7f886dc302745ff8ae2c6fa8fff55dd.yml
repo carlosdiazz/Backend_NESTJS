@@ -1,0 +1,28 @@
+_id: req_e7f886dc302745ff8ae2c6fa8fff55dd
+type: Request
+parentId: fld_8cc7129e16ed4300a5f849052edaf09a
+modified: 1668483462241
+created: 1668479177201
+url: "{{ _.BASE_URL }}/order2/637173499fc409beab561d1d"
+name: updateOrder
+description: ""
+method: PUT
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"name":"category 11"
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+authentication: {}
+metaSortKey: -1667693910834.25
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

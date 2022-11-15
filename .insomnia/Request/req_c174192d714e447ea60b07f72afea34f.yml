@@ -1,0 +1,28 @@
+_id: req_c174192d714e447ea60b07f72afea34f
+type: Request
+parentId: fld_8cc7129e16ed4300a5f849052edaf09a
+modified: 1668483464541
+created: 1668479177206
+url: "{{ _.BASE_URL }}/order2/63730958a6c1036e14593f51"
+name: deleteOrder
+description: ""
+method: DELETE
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"name":"category 11"
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+authentication: {}
+metaSortKey: -1667645056826.125
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

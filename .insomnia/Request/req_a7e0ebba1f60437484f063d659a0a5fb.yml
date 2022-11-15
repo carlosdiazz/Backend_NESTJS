@@ -1,0 +1,21 @@
+_id: req_a7e0ebba1f60437484f063d659a0a5fb
+type: Request
+parentId: fld_8cc7129e16ed4300a5f849052edaf09a
+modified: 1668479231369
+created: 1668479177188
+url: "{{ _.BASE_URL }}/order2"
+name: getAllOrder
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1668377866948
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

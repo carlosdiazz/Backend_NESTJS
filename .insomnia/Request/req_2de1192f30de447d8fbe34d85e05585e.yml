@@ -1,28 +1,25 @@
-_id: req_59e0d45a167f4ae2b34d52546f8a5f1d
+_id: req_2de1192f30de447d8fbe34d85e05585e
 type: Request
-parentId: fld_453fe099d8f148fcb5f2e535f57c5dc5
-modified: 1668479893862
-created: 1668381372528
-url: "{{ _.BASE_URL }}/users2"
-name: createUser
+parentId: fld_8cc7129e16ed4300a5f849052edaf09a
+modified: 1668483468885
+created: 1668479177197
+url: "{{ _.BASE_URL }}/order2"
+name: createOrder
 description: ""
 method: POST
 body:
   mimeType: application/json
   text: |-
     {
-    	"firstName":"Carlos",
-    	"lastName":"Diaz",
-    	"nickname":"carlos01",
-    	"email":"mail@mail.com",
-    	"password":"ds"
-    }	
+    	"id_costumer":"63730014f9697437b64c5430",
+    	"products":["63716aad336b2be08d5360c3"]
+    }
 parameters: []
 headers:
   - name: Content-Type
     value: application/json
 authentication: {}
-metaSortKey: -1668378704208.75
+metaSortKey: -1667791618850.5
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

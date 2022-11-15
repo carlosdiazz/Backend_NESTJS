@@ -1,0 +1,21 @@
+_id: req_9521e591e4004fbd9ab4de367544c71a
+type: Request
+parentId: fld_8cc7129e16ed4300a5f849052edaf09a
+modified: 1668481067021
+created: 1668479177193
+url: "{{ _.BASE_URL }}/order2/63730023f9697437b64c5437"
+name: getOneOrder
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1667987034883
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
