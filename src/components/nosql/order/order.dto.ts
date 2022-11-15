@@ -1,5 +1,5 @@
-import { IsString, IsNotEmpty, IsMongoId } from 'class-validator';
-import { PartialType, ApiProperty } from '@nestjs/swagger';
+import { IsString, IsNotEmpty, IsMongoId, IsArray, ArrayMinSize } from 'class-validator';
+import { PartialType, ApiProperty, OmitType } from '@nestjs/swagger';
 
 export class CreateOrderDto {
 
@@ -8,6 +8,13 @@ export class CreateOrderDto {
     @IsMongoId()
     @ApiProperty()
     readonly id_costumer: string
+
+    @IsArray()
+    @ArrayMinSize(1)
+    @ApiProperty()
+    readonly products: string[];
 }
 
-export class UpdateOrderDto extends PartialType(CreateOrderDto) {}
+export class UpdateOrderDto extends PartialType(
+    OmitType(CreateOrderDto, ['products']) //Aqui estoy omitiendo este parametro
+) {}
