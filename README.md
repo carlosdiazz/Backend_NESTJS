@@ -51,6 +51,8 @@ Coloco --flat si no quiero crear una carperta
 - GENERAR CONTROLADORES: nest g co controllers/NAME
 - GENERAR SERVICIOS: nest g s services/NAME
 - GENERAR MI PIPE PROPIO: nest g pipe common/NAME
+- GENERAR UN GUARDIAN: nest g gu auth/guards/NAME --flat
+- GENERAR un DECORADOR: nest g d auth/decorators/nombre
 
 
 ## Librerias externas utilizadas

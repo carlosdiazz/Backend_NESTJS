@@ -13,8 +13,9 @@ export class AppService {
     return `La apiKey => ${'apiKey'}, el nameBD => ${'nameDB'}`;
   }
 
-  //getTasksMongo() {
-  //  const collec = this.MONGO.collection('TEST');
-  //  return collec.find().toArray();
-  //}
+  getTasksMongo() {
+    //const collec = this.MONGO.collection('TEST');
+    //return collec.find().toArray();
+    return 'HOLAAAA';
+  }
 }
