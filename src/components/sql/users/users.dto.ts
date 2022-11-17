@@ -1,4 +1,10 @@
-import { IsString, IsNotEmpty, IsPositive, IsOptional } from 'class-validator';
+import {
+  IsString,
+  IsNotEmpty,
+  IsPositive,
+  IsOptional,
+  IsEmail,
+} from 'class-validator';
 
 import { PartialType, ApiProperty } from '@nestjs/swagger'; //Lo apso por aqui apra la documentacion
 
@@ -21,6 +27,7 @@ export class CreateUserSchema {
   @IsString()
   @IsNotEmpty()
   @ApiProperty()
+  @IsEmail()
   readonly email: string;
 
   @IsString()

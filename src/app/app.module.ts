@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { HttpModule, HttpService } from '@nestjs/axios';
+//import { HttpModule, HttpService } from '@nestjs/axios';
 
 //Importaciones Propias
 import { AppController } from './app.controller';
@@ -39,7 +39,7 @@ import { config, validationENV } from '../config/config';
     OrdersModule,
     CostumersModule,
     CategoriesModule,
-    HttpModule,
+    //HttpModule,
     DatabaseModule,
     ProductsModule2,
     CategoriesModule2,
