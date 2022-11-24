@@ -65,8 +65,20 @@ Coloco --flat si no quiero crear una carperta
 - npm install --save @nestjs/typeorm typeorm pg mysql2
 - npm i mongo
 - npm i @nestjs/mongoose mongoose
+- npm i typeorm-seeding
 
 
 ## Manjear docker
 
 - Para subir el docker: docker-compose up -d
+
+### Generar Migraciones, primera vez
+
+npm run typeorm:generate-migration --name=CreatePost
+
+
+### Correr la migracion
+npm run typeorm:run-migrations
+
+
+### Crear Guardianes
