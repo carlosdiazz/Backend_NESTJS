@@ -1,5 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument } from 'mongoose';
+import { ExcludeProperty } from 'nestjs-mongoose-exclude';
 
 @Schema({ timestamps: true })
 export class User {
@@ -16,6 +17,7 @@ export class User {
   email: string;
 
   @Prop({ required: true })
+  @ExcludeProperty()
   password: string;
 
   createdAt: Date;

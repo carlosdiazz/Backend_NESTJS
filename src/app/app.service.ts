@@ -5,12 +5,15 @@ import { config } from '../config/config';
 
 @Injectable()
 export class AppService {
-  //constructor() {} //@Inject(config.KEY) private configSerivice: ConfigType<typeof config>, //@Inject('MONGO') private MONGO: Db, //@Inject('TASKS') private TASKS: any[],
+  constructor(
+    @Inject(config.KEY) private configSerivice: ConfigType<typeof config>,
+  ) {} //@Inject('MONGO') private MONGO: Db, //@Inject('TASKS') private TASKS: any[],
 
   getHello(): string {
-    //const apiKey = this.configSerivice.apiKey;
+    const apiKey = this.configSerivice.apiKey;
     //const nameDB = this.configSerivice.database.name;
-    return `La apiKey => ${'apiKey'}, el nameBD => ${'nameDB'}`;
+    const entorno = this.configSerivice.ENVIRONMENT;
+    return `La apiKey => ${apiKey}, el Ambiente es => ${entorno}`;
   }
 
   getTasksMongo() {

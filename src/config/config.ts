@@ -1,7 +1,7 @@
 import { registerAs } from '@nestjs/config';
 import * as Joi from 'joi';
-import * as dotenv from 'dotenv';
-dotenv.config();
+//import * as dotenv from 'dotenv';
+//dotenv.config();
 
 export const VARIABLES = {
   postgres: {
@@ -44,7 +44,8 @@ export const config = registerAs('config', () => {
       dbHost: process.env.MONGO_HOST,
       dbConnection: process.env.MONGO_CONNECTION,
     },
-    apiKey: process.env.API_KEy,
+    apiKey: process.env.API_KEY,
+    ENVIRONMENT: process.env.ENVIRONMENT,
   };
 });
 

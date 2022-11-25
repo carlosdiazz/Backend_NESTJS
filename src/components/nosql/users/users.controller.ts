@@ -8,14 +8,19 @@ import {
   Delete,
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-
+import { SanitizeMongooseModelInterceptor } from 'nestjs-mongoose-exclude';
+import { UseInterceptors } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { CreateUserDto, UpdateUserDto } from './user.dto';
-import {
-  ParseObjectIdPipe2,
-} from '../../../common/parse-object-idMongo.pipe';
+import { ParseObjectIdPipe2 } from '../../../common/parse-object-idMongo.pipe';
 
 @ApiTags('User Mongo')
+@UseInterceptors(
+  new SanitizeMongooseModelInterceptor({
+    excludeMongooseId: false,
+    excludeMongooseV: true,
+  }),
+)
 @Controller('users2')
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}

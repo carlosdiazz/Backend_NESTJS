@@ -66,7 +66,10 @@ Coloco --flat si no quiero crear una carperta
 - npm i mongo
 - npm i @nestjs/mongoose mongoose
 - npm i typeorm-seeding
-
+- npm i bcrypt
+- npm i -D @types/bcrypt
+- npm i nestjs-mongoose-exclude
+- npm install --save @nestjs/passport passport passport-local
 
 ## Manjear docker
 
@@ -82,3 +85,4 @@ npm run typeorm:run-migrations
 
 
 ### Crear Guardianes
+Correrlo en desarrollo es: NODE_ENV=dev npm run dev

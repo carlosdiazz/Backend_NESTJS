@@ -22,13 +22,14 @@ import { UsersModule2 } from '../components/nosql/users/users.module';
 import { BrandsModule2 } from '../components/nosql/brands/brands.module';
 import { CostumersModule2 } from '../components/nosql/costumers/costumers.module';
 import { OrderModule2 } from '../components/nosql/order/order.module';
-//import { enviroments } from '../config/enviroments';
+import { enviroments } from '../config/enviroments';
 import { config, validationENV } from '../config/config';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
-      //envFilePath: enviroments[process.env.NODE_ENV] || '.env',
+      envFilePath: enviroments[process.env.NODE_ENV] || '.env',
+      //envFilePath: '.prod.env',
       load: [config],
       isGlobal: true,
       validationSchema: validationENV(),
