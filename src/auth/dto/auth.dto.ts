@@ -1,6 +1,6 @@
-import { IsString, IsNotEmpty,} from 'class-validator';
+import { IsString, IsNotEmpty } from 'class-validator';
 
-import {  ApiProperty } from '@nestjs/swagger'; //Lo apso por aqui apra la documentacion
+import { ApiProperty } from '@nestjs/swagger'; //Lo apso por aqui apra la documentacion
 
 export class LoginAuth {
   @IsString()
