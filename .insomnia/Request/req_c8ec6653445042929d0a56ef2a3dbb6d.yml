@@ -1,16 +1,18 @@
 _id: req_c8ec6653445042929d0a56ef2a3dbb6d
 type: Request
 parentId: fld_4679f81b0d6d4914a9e232c823fbd64b
-modified: 1668379057356
+modified: 1669656137118
 created: 1667598000322
-url: "{{ _.BASE_URL }}/products2/63716aad336b2be08d5360c3"
+url: "{{ _.BASE_URL }}/products2/6384ced3054b3939b4b1b3b5"
 name: getOneProduct
 description: ""
 method: GET
 body: {}
 parameters: []
 headers: []
-authentication: {}
+authentication:
+  type: bearer
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2Mzg0ZWUxZWNkZjgwMGVkZWFkY2NmMTIiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2Njk2NTYxMjcsImV4cCI6MTY2OTY1NjE1N30.0j_GIXSfCl8c7Yrtdd8kzzLkGlJuFHDS40O6FcgDvXc
 metaSortKey: -1667596202749.25
 isPrivate: false
 settingStoreCookies: true

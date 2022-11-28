@@ -1,0 +1,32 @@
+_id: req_7b534f1fb4ec4ae8a1e0a009a20684d0
+type: Request
+parentId: fld_91c9150f1bc6493b9451b982eaf9b263
+modified: 1669656126154
+created: 1669642969444
+url: "{{ _.BASE_URL }}/auth/login"
+name: Login
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"email":"carlos@mail.com",
+    	"password":"12341234"
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_df5565944fdd4eed8f0f7825f7a203f1
+authentication:
+  type: bearer
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2Mzg0YmIxOWZhMzQ1ODY1MGJiMjY1YzQiLCJyb2xlIjoiQ2FybG9zIiwiaWF0IjoxNjY5NjQ4MjM1LCJleHAiOjE2Njk2NDgyNDV9.WGV-maxsRPIsGTbtPleaWXKsxeIUPwtW3K0ZNOiBd3g
+metaSortKey: -1669642969444
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

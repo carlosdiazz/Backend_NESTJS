@@ -1,0 +1,31 @@
+_id: req_2d32b8bc0e11448ebf815211dab04dbe
+type: Request
+parentId: wrk_8526125dac2f413a8024afc1a3e6d721
+modified: 1669386200825
+created: 1669384460232
+url: "{{ _.BASE_URL }}/"
+name: TESTMONGO
+description: ""
+method: GET
+body: {}
+parameters: []
+headers:
+  - id: pair_47ebe4915ddf43159e7a057c80f3eedc
+    name: Auth
+    value: ABC123
+    description: ""
+    disabled: true
+  - id: pair_dca688fa07bd4ad287cea2bb00548413
+    name: Auth
+    value: ABCABC
+    description: ""
+    disabled: false
+authentication: {}
+metaSortKey: -1668506808408
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

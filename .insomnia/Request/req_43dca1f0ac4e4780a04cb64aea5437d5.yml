@@ -1,9 +1,9 @@
 _id: req_43dca1f0ac4e4780a04cb64aea5437d5
 type: Request
 parentId: fld_9ca4c8d7e3384ad1a01aa90542d704c0
-modified: 1666903479676
+modified: 1669404442297
 created: 1666899713586
-url: "{{ _.BASE_URL }}/users/1"
+url: "{{ _.BASE_URL }}/users/2"
 name: getOneUsers
 description: ""
 method: GET

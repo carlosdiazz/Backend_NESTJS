@@ -1,7 +1,7 @@
 _id: req_c32aa3ceafdf48c1b1a010879df53047
 type: Request
 parentId: fld_4679f81b0d6d4914a9e232c823fbd64b
-modified: 1667938820028
+modified: 1669653779432
 created: 1667596202718
 url: "{{ _.BASE_URL }}/products2?limit=555"
 name: GetAllProducts
@@ -10,7 +10,9 @@ method: GET
 body: {}
 parameters: []
 headers: []
-authentication: {}
+authentication:
+  type: bearer
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2Mzg0YmIxOWZhMzQ1ODY1MGJiMjY1YzQiLCJyb2xlIjoiQ2FybG9zIiwiaWF0IjoxNjY5NjQ4Mjc3LCJleHAiOjE2Njk2NDgzMDd9.ok659ckBSkqJt76V4f3rXJam6c25UBUKZpjloup31m0
 metaSortKey: -1667596202718
 isPrivate: false
 settingStoreCookies: true

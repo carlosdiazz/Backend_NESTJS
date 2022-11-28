@@ -1,7 +1,7 @@
 _id: req_09b26d8764e64f92944c9b72977a2823
 type: Request
 parentId: fld_4679f81b0d6d4914a9e232c823fbd64b
-modified: 1668442422236
+modified: 1669654982016
 created: 1667922071989
 url: "{{ _.BASE_URL }}/products2"
 name: createProduct
@@ -20,13 +20,16 @@ body:
     		"name":"azul",
     		"image":"https://platzi.com/"
     	},
-    	"id_brand":"637266867238515a178824a1"
+    	"id_brand":"6384cecd054b3939b4b1b3b2"
     }
 parameters: []
 headers:
   - name: Content-Type
     value: application/json
-authentication: {}
+    id: pair_4af258cada7946ceb4d05c7096c307eb
+authentication:
+  type: bearer
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2Mzg0ZTliNWNkNzBiNTg2ZjY0ZDJmYTkiLCJyb2xlIjoiQ2FybG9zIiwiaWF0IjoxNjY5NjU0OTcyLCJleHAiOjE2Njk2NTUwMDJ9.T9-OONGkAF8dzNKy_oVZe6Bu7JA_V5TehzSDetzisHA"
 metaSortKey: -1667596202818
 isPrivate: false
 settingStoreCookies: true

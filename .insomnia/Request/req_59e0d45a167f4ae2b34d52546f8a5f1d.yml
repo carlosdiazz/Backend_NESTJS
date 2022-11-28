@@ -1,7 +1,7 @@
 _id: req_59e0d45a167f4ae2b34d52546f8a5f1d
 type: Request
 parentId: fld_453fe099d8f148fcb5f2e535f57c5dc5
-modified: 1668479893862
+modified: 1669656093235
 created: 1668381372528
 url: "{{ _.BASE_URL }}/users2"
 name: createUser
@@ -13,9 +13,10 @@ body:
     {
     	"firstName":"Carlos",
     	"lastName":"Diaz",
-    	"nickname":"carlos01",
-    	"email":"mail@mail.com",
-    	"password":"ds"
+    	"nickname":"carlos",
+    	"email":"carlos@mail.com",
+    	"password":"12341234",
+    	"role":"admin"
     }	
 parameters: []
 headers:

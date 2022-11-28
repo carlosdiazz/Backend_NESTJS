@@ -1,7 +1,7 @@
 _id: req_5e3682b880dd48a8944e4aed5c479373
 type: Request
 parentId: fld_9ca4c8d7e3384ad1a01aa90542d704c0
-modified: 1667501309237
+modified: 1669640645640
 created: 1666817549913
 url: "{{ _.BASE_URL }}/users"
 name: createUsers
@@ -11,10 +11,10 @@ body:
   mimeType: application/json
   text: |-
     {
-    	"firstName" : "Carlos",
-    	"lastName" : "Diaz",
-    	"nickname" : "Cadrloss",
-    	"email" : "c.diazadriamvn@hotmail.com",
+    	"firstName" : "Carslos",
+    	"lastName" : "Disaz",
+    	"nickname" : "Cadrddlosss",
+    	"email" : "c.diazadddriamvsn@hotmail.com",
     	"password" : "12341234carlos",
     	"customerId" : 1
     }
@@ -22,6 +22,7 @@ parameters: []
 headers:
   - name: Content-Type
     value: application/json
+    id: pair_e707a5bbe8e4402f917a8c577bdeebe6
 authentication: {}
 metaSortKey: -1666807787377
 isPrivate: false
