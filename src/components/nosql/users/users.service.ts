@@ -50,7 +50,7 @@ export class UsersService {
   }
 
   async findByEmail(email: string) {
-    const isEmail = this.userModel.findOne({
+    const isEmail = await this.userModel.findOne({
       email,
     });
     if (!isEmail) {

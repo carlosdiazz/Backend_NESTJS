@@ -70,6 +70,8 @@ Coloco --flat si no quiero crear una carperta
 - npm i -D @types/bcrypt
 - npm i nestjs-mongoose-exclude
 - npm install --save @nestjs/passport passport passport-local
+- npm install --save @nestjs/jwt passport-jwt
+npm install --save-dev @types/passport-jwt
 
 ## Manjear docker
 

@@ -46,12 +46,14 @@ export const config = registerAs('config', () => {
     },
     apiKey: process.env.API_KEY,
     ENVIRONMENT: process.env.ENVIRONMENT,
+    jwtScret: process.env.JWT_SECRET,
   };
 });
 
 export const validationENV = () => {
   return Joi.object({
     API_KEY: Joi.string().required(),
+    jwtScret: Joi.string(),
 
     DATABASE_NAME: Joi.string().required(),
     DATABASE_PORT: Joi.number().required(),
@@ -67,5 +69,6 @@ export const validationENV = () => {
     MONGO_PORT: Joi.number().required(),
     MONGO_HOST: Joi.string().required(),
     MONGO_CONNECTION: Joi.string().required(),
+
   });
 };

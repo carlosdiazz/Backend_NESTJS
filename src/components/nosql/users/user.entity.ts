@@ -4,6 +4,9 @@ import { ExcludeProperty } from 'nestjs-mongoose-exclude';
 
 @Schema({ timestamps: true })
 export class User {
+
+  _id: string
+
   @Prop({ required: true })
   firstName: string;
 

@@ -25,6 +25,9 @@ import { OrderModule2 } from '../components/nosql/order/order.module';
 import { enviroments } from '../config/enviroments';
 import { config, validationENV } from '../config/config';
 
+//Modulos adicionales
+import { AuthModule } from '../auth/auth.module';
+
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -48,6 +51,7 @@ import { config, validationENV } from '../config/config';
     BrandsModule2,
     CostumersModule2,
     OrderModule2,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [
